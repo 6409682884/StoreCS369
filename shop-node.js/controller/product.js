@@ -30,7 +30,7 @@ async function getProductByID(id) {  //รับ Parameter id
             .query('SELECT * FROM Products WHERE ProductID = @ProductID') // ส่ง Query select ด้วยการ Where ProductID
         }).then(result => {// ผลลัพธ์ result
             // console.log(result)
-            return result.recordsets  // return data result
+            return result.recordset[0]  // return data result
         }).catch(err => {  // ถ้าเกิด error จะเข้า catch
             return err;  // return error
         });
@@ -46,7 +46,7 @@ async function postProduct(item) {
     // Query
     let data = await sql.connect(config) // sql connect to database
         .then(pool => {
-            
+
             return pool.request()
             .input('ProductName', sql.NVarChar, item.ProductName)  //input CompanyName เป็น type NVarChar
             .input('Picture', sql.NVarChar, item.Picture)  //input Phone เป็น type NVarChar

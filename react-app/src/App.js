@@ -12,6 +12,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [file, setFile] = useState(null);
+  const [info, setInfo] = useState(null);
   // Get Data From API
   const fetchDataForPosts = async () => {
     try {
@@ -40,7 +41,7 @@ function App() {
       setPending(false);
     }, 3000);
     return () => clearTimeout(timeout);
-  }, []);
+  }, [info]);
 
   const HeaderColumns =
     [
@@ -50,7 +51,8 @@ function App() {
       },
       {
         name: 'ProductName',
-        cell: row => <a href={`http://localhost:8080/api/product/${row.ProductID}`}>{row.ProductName}</a>
+        cell: row => <button onClick={() => handleClickInfo(row.ProductID)}>{row.ProductName}</button>
+
       },
       {
         name: 'Price',
@@ -85,7 +87,7 @@ function App() {
       },
     },
   };
-  const [pending, setPending] = React.useState(true);
+  const [pending, setPending] = useState(true);
 
   const datas = []
 
@@ -105,9 +107,31 @@ function App() {
     setStatusAdd(false)
   }
 
-  function handleClickInfo(event) {
-    setStatusInfo(true)
+
+  const handleClickInfo = (ProductID) => {
+    fetch(`http://localhost:8080/api/product/${ProductID}`, {
+      method: "GET",
+      headers: { 'content-type': 'application/json' },
+    })
+      .then(res => {
+        if (res.ok) {
+          return res.json(); // Parse the response body as JSON
+        } else {
+          throw new Error(`Failed to GET ProductID ${ProductID}`);
+        }
+      })
+      .then(Product => {
+        // console.log(Product)
+        setInfo(Product.data);
+        setStatusInfo(true); // Set statusInfo after the fetch request completes
+        console.log(`GET ProductID ${ProductID} successfully`);
+        // console.log(Product.data.ProductName)
+      })
+      .catch(error => {
+        console.error(`Error fetching ProductID ${ProductID}:`, error);
+      });
   }
+
   function handleClickCloseInfo(event) {
     setStatusInfo(false)
   }
@@ -218,18 +242,18 @@ function App() {
     <div className='container'>
       <div style={{ alignSelf: 'end', display: 'flex', justifyContent: 'space-evenly', gap: '0.5rem' }}>
 
-        {(statusAdd == false && statusInfo == false) &&
+        {statusAdd == false && statusInfo == false && (
           <div>
 
             <a href='http://localhost:8080/report/products' style={{ margin: '0 0.5rem 0 0.5rem' }}><button>REPORT</button></a>
             <button onClick={handleClickAdd}>+</button>
             <input type='text' placeholder='Search Product Name' onChange={handleFilter} style={{ margin: '0 0.5rem 0 0.5rem' }} />
-          </div>}
+          </div>)}
 
         {statusAdd == true && <button onClick={handleClickCloseForm}>X</button>}
         {statusInfo == true && <button onClick={handleClickCloseInfo}>X</button>}
       </div>
-      {(statusAdd == false && statusInfo == false) &&
+      {statusAdd == false && statusInfo == false && (
         <div>
           <DataTable
             theme="default"
@@ -244,7 +268,7 @@ function App() {
             progressPending={pending}
             pagination
           />
-        </div>}
+        </div>)}
 
       {statusAdd == true &&
         <div>
@@ -291,12 +315,14 @@ function App() {
 
           </form>
         </div>}
-
-      {statusInfo == true &&
+        {statusInfo == true && info && (
         <div>
-
+           <p>
+           {info.ProductName}
+              </p>
         </div>
-      }
+      )}
+
     </div>
   );
 }
