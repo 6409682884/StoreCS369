@@ -1,0 +1,17 @@
+{
+    "name": "shippers-report",
+    "engine": "handlebars",
+    "recipe": "html",
+    "data": {
+        "shortid": "UsvdSziYr"
+    },
+    "shortid": "WDnccRm04i",
+    "creationDate": {
+        "$$date": 1713847567476
+    },
+    "modificationDate": {
+        "$$date": 1713847567476
+    },
+    "_id": "ATxo2VdzbfrwliDZ",
+    "$entitySet": "templates"
+}

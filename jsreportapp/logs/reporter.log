@@ -1,0 +1,739 @@
+2024-04-23T03:55:58.992Z - info: Initializing jsreport (version: 4.3.1, configuration file: jsreport.config.json, nodejs: 20.11.1)
+2024-04-23T03:55:58.996Z - info: Searching for available extensions in C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\
+2024-04-23T03:55:59.000Z - info: Extensions location cache doesn't contain entry yet, crawling
+2024-04-23T03:56:00.440Z - info: Found 35 extension(s)
+2024-04-23T03:56:00.501Z - info: Using extension base@4.0.0
+2024-04-23T03:56:00.506Z - info: Using extension child-templates@4.1.0
+2024-04-23T03:56:00.509Z - info: Using extension cli@4.0.4
+2024-04-23T03:56:00.511Z - info: Using extension components@4.0.0
+2024-04-23T03:56:00.512Z - info: Using extension data@4.1.0
+2024-04-23T03:56:00.514Z - info: Using extension express@4.1.1
+2024-04-23T03:56:00.795Z - info: Using extension freeze@4.0.0
+2024-04-23T03:56:00.797Z - info: Using extension fs-store@4.0.3
+2024-04-23T03:56:00.907Z - info: Using extension handlebars@4.0.1
+2024-04-23T03:56:00.908Z - info: Using extension import-export@4.0.3
+2024-04-23T03:56:00.918Z - info: Using extension jsrender@4.0.0
+2024-04-23T03:56:00.919Z - info: Using extension licensing@4.0.2
+2024-04-23T03:56:00.924Z - info: Using extension localization@4.0.1
+2024-04-23T03:56:00.925Z - info: Using extension npm@4.0.0
+2024-04-23T03:56:00.928Z - info: Using extension pdf-utils@4.1.1
+2024-04-23T03:56:00.931Z - info: Using extension reports@4.1.1
+2024-04-23T03:56:00.934Z - info: Using extension tags@4.0.1
+2024-04-23T03:56:00.937Z - info: Using extension text@4.0.0
+2024-04-23T03:56:00.942Z - info: Using extension version-control@4.0.0
+2024-04-23T03:56:00.951Z - info: Using extension assets@4.1.0
+2024-04-23T03:56:00.964Z - info: Using extension authorization@4.0.0
+2024-04-23T03:56:00.969Z - info: Using extension browser-client@4.1.0
+2024-04-23T03:56:00.971Z - info: Using extension chrome-pdf@4.1.0
+2024-04-23T03:56:00.974Z - info: Using extension docx@4.2.1
+2024-04-23T03:56:00.976Z - info: Using extension html-to-xlsx@4.1.1
+2024-04-23T03:56:01.346Z - info: html-to-xlsx detected chrome as available html engine
+2024-04-23T03:56:01.346Z - info: Using extension pptx@4.2.0
+2024-04-23T03:56:01.348Z - info: Using extension scheduling@4.0.0
+2024-04-23T03:56:01.376Z - info: Using extension scripts@4.1.0
+2024-04-23T03:56:01.377Z - info: Using extension static-pdf@4.1.0
+2024-04-23T03:56:01.378Z - info: Using extension studio@4.1.0
+2024-04-23T03:56:01.441Z - info: Using extension xlsx@4.1.0
+2024-04-23T03:56:01.443Z - info: Using extension public-templates@4.0.0
+2024-04-23T03:56:01.445Z - info: Using extension sample-template@4.0.0
+2024-04-23T03:56:01.446Z - info: Using extension studio-theme-dark@4.0.0
+2024-04-23T03:56:01.448Z - info: Using general timeout for rendering (reportTimeout: 60000)
+2024-04-23T03:56:01.448Z - info: Using fs provider for template store.
+2024-04-23T03:56:01.452Z - info: fs store is persisting using fs for C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\data
+2024-04-23T03:56:01.458Z - info: fs store is loading data
+2024-04-23T03:56:01.463Z - info: fs store is initialized successfully
+2024-04-23T03:56:01.473Z - info: Creating default express app.
+2024-04-23T03:56:01.490Z - info: jsreport server successfully started on http port: 5488
+2024-04-23T03:56:01.493Z - info: Verifying license key free
+2024-04-23T03:56:01.494Z - info: Using free license
+2024-04-23T03:56:01.515Z - info: Migrating templates chrome settings (waitForNetworkIddle -> waitForNetworkIdle)
+2024-04-23T03:56:01.523Z - info: Migration successful
+2024-04-23T03:56:01.702Z - info: Initializing worker threads
+2024-04-23T03:56:02.656Z - info: 2 worker threads initialized in 954ms
+2024-04-23T03:56:02.656Z - info: Starting temp files cleanup with 180000ms threshold
+2024-04-23T03:56:02.657Z - info: reporter initialized
+2024-04-23T04:02:03.776Z - warn: Error during processing request at http://localhost:5488/api/validate-import?fullImport=false&targetFolder=PxTmU6n, details: Error: Unable to parse file "jsreportapp/data/fs.journal" inside zip, make sure to import zip created using jsreport export
+    at C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-import-export\lib\helpers.js:76:19
+    at C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\stream-to-array\index.js:54:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+wrapped by:
+Error: Unable to read export file
+(because) unable to parse file "jsreportapp/data/fs.journal" inside zip, make sure to import zip created using jsreport export
+    at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+    at MainReporter.createError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:53:12)
+    at processImport (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-import-export\lib\import\index.js:20:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-04-23T04:14:07.772Z - error: Error when processing OData POST: /odata/assets Error: Entity name "config.json" is reserved and can't be used
+    at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+    at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\main\validateEntityName.js:62:11)
+    at Object.insert (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\main\store\collection.js:123:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-04-23T04:34:27.840Z - info: fs store is loading data
+2024-04-23T04:45:42.228Z - info: Render request 1 queued for execution and waiting for available worker rootId=0h9pxn5vmy87075, id=0h9pxn5vmy87075
+2024-04-23T04:45:42.288Z - info: Starting rendering request 1 rootId=0h9pxn5vmy87075, id=0h9pxn5vmy87075
+2024-04-23T04:45:42.289Z - info: Rendering template { name: shippers-report, recipe: html, engine: handlebars, preview: true } rootId=0h9pxn5vmy87075, id=0h9pxn5vmy87075
+2024-04-23T04:45:43.228Z - warn: Error when processing render request 1
+(because) error when evaluating engine handlebars for template anonymous
+(because) "asset" helper call failed
+(because) asset shippers-styles.css not found
+
+(system-helpers.js line 293:20)
+
+  291 |
+  292 |   const jsreport = require('jsreport-proxy')
+> 293 |   const assetVal = await jsreport.assets.read(path, encoding)
+      |                    ^
+  294 |   return assetVal
+  295 | }
+  296 |
+
+
+Error: Asset shippers-styles.css not found
+  at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+  at WorkerReporter.createError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:53:12)
+  at readAsset (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-assets\lib\assetsShared.js:121:24)
+  at async Object.read (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-assets\lib\worker.js:136:19)
+  at async Object.asset (system-helpers.js:293:20)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:265:26
+  at async Promise.all (index 0)
+  at async executionFn (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:264:9)
+  at async run (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\createSandbox.js:132:18)
+  at async WorkerReporter.runInSandbox [as _runInSandbox] (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\runInSandbox.js:211:14)
+  at async executeEngine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:322:14)
+  at async engine.engine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:146:14)
+  at async invokeRender (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:61:23)
+  at async WorkerReporter._render (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:148:7)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\reporter.js:227:24
+  at async processAndResponse (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:41:17)
+wrapped by:
+Error: "asset" helper call failed
+(because) asset shippers-styles.css not found
+  at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+  at WorkerReporter.createError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:53:12)
+  at getEnhancedHelperError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:400:54)
+  at C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:418:15
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:265:26
+  at async Promise.all (index 0)
+  at async executionFn (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:264:9)
+  at async run (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\createSandbox.js:132:18)
+  at async WorkerReporter.runInSandbox [as _runInSandbox] (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\runInSandbox.js:211:14)
+  at async executeEngine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:322:14)
+  at async engine.engine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:146:14)
+  at async invokeRender (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:61:23)
+  at async WorkerReporter._render (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:148:7)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\reporter.js:227:24
+  at async processAndResponse (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:41:17)
+wrapped by:
+Error: Error when evaluating engine handlebars for template anonymous
+(because) "asset" helper call failed
+(because) asset shippers-styles.css not found
+  at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+  at WorkerReporter.createError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:53:12)
+  at executeEngine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:345:33)
+  at async engine.engine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:146:14)
+  at async invokeRender (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:61:23)
+  at async WorkerReporter._render (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:148:7)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\reporter.js:227:24
+  at async processAndResponse (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:41:17) rootId=0h9pxn5vmy87075, id=0h9pxn5vmy87075
+2024-04-23T04:45:43.242Z - warn: Rendering request 1 finished with error in 1005 ms rootId=0h9pxn5vmy87075, id=0h9pxn5vmy87075
+2024-04-23T04:46:11.230Z - info: Render request 2 queued for execution and waiting for available worker rootId=wj6zu5x1lrv73rh, id=wj6zu5x1lrv73rh
+2024-04-23T04:46:11.256Z - info: Starting rendering request 2 rootId=wj6zu5x1lrv73rh, id=wj6zu5x1lrv73rh
+2024-04-23T04:46:11.257Z - info: Rendering template { name: shippers-report, recipe: html, engine: handlebars, preview: true } rootId=wj6zu5x1lrv73rh, id=wj6zu5x1lrv73rh
+2024-04-23T04:46:12.197Z - warn: Error when processing render request 2
+(because) error when evaluating engine handlebars for template /samples/Shippers/shippers-report
+(because) "asset" helper call failed
+(because) asset shippers-styles.css not found
+
+(system-helpers.js line 293:20)
+
+  291 |
+  292 |   const jsreport = require('jsreport-proxy')
+> 293 |   const assetVal = await jsreport.assets.read(path, encoding)
+      |                    ^
+  294 |   return assetVal
+  295 | }
+  296 |
+
+
+Error: Asset shippers-styles.css not found
+  at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+  at WorkerReporter.createError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:53:12)
+  at readAsset (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-assets\lib\assetsShared.js:121:24)
+  at async Object.read (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-assets\lib\worker.js:136:19)
+  at async Object.asset (system-helpers.js:293:20)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:265:26
+  at async Promise.all (index 0)
+  at async executionFn (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:264:9)
+  at async run (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\createSandbox.js:132:18)
+  at async WorkerReporter.runInSandbox [as _runInSandbox] (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\runInSandbox.js:211:14)
+  at async executeEngine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:322:14)
+  at async engine.engine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:146:14)
+  at async invokeRender (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:61:23)
+  at async WorkerReporter._render (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:148:7)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\reporter.js:227:24
+  at async processAndResponse (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:41:17)
+wrapped by:
+Error: "asset" helper call failed
+(because) asset shippers-styles.css not found
+  at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+  at WorkerReporter.createError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:53:12)
+  at getEnhancedHelperError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:400:54)
+  at C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:418:15
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:265:26
+  at async Promise.all (index 0)
+  at async executionFn (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:264:9)
+  at async run (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\createSandbox.js:132:18)
+  at async WorkerReporter.runInSandbox [as _runInSandbox] (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\runInSandbox.js:211:14)
+  at async executeEngine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:322:14)
+  at async engine.engine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:146:14)
+  at async invokeRender (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:61:23)
+  at async WorkerReporter._render (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:148:7)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\reporter.js:227:24
+  at async processAndResponse (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:41:17)
+wrapped by:
+Error: Error when evaluating engine handlebars for template /samples/Shippers/shippers-report
+(because) "asset" helper call failed
+(because) asset shippers-styles.css not found
+  at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+  at WorkerReporter.createError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:53:12)
+  at executeEngine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:345:33)
+  at async engine.engine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:146:14)
+  at async invokeRender (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:61:23)
+  at async WorkerReporter._render (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:148:7)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\reporter.js:227:24
+  at async processAndResponse (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:41:17) rootId=wj6zu5x1lrv73rh, id=wj6zu5x1lrv73rh
+2024-04-23T04:46:12.211Z - warn: Rendering request 2 finished with error in 969 ms rootId=wj6zu5x1lrv73rh, id=wj6zu5x1lrv73rh
+2024-04-23T04:47:37.644Z - info: Render request 3 queued for execution and waiting for available worker rootId=dteowrsexg0h0w0, id=dteowrsexg0h0w0
+2024-04-23T04:47:37.674Z - info: Starting rendering request 3 rootId=dteowrsexg0h0w0, id=dteowrsexg0h0w0
+2024-04-23T04:47:37.675Z - info: Rendering template { name: shippers-report, recipe: html, engine: handlebars, preview: true } rootId=dteowrsexg0h0w0, id=dteowrsexg0h0w0
+2024-04-23T04:47:37.756Z - warn: Error when processing render request 3
+(because) error when evaluating engine handlebars for template /samples/Shippers/shippers-report
+(because) "asset" helper call failed
+(because) asset shippers-styles.css not found
+
+(system-helpers.js line 293:20)
+
+  291 |
+  292 |   const jsreport = require('jsreport-proxy')
+> 293 |   const assetVal = await jsreport.assets.read(path, encoding)
+      |                    ^
+  294 |   return assetVal
+  295 | }
+  296 |
+
+
+Error: Asset shippers-styles.css not found
+  at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+  at WorkerReporter.createError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:53:12)
+  at readAsset (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-assets\lib\assetsShared.js:121:24)
+  at async Object.read (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-assets\lib\worker.js:136:19)
+  at async Object.asset (system-helpers.js:293:20)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:265:26
+  at async Promise.all (index 0)
+  at async executionFn (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:264:9)
+  at async run (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\createSandbox.js:132:18)
+  at async WorkerReporter.runInSandbox [as _runInSandbox] (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\runInSandbox.js:211:14)
+  at async executeEngine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:322:14)
+  at async engine.engine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:146:14)
+  at async invokeRender (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:61:23)
+  at async WorkerReporter._render (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:148:7)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\reporter.js:227:24
+  at async processAndResponse (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:41:17)
+wrapped by:
+Error: "asset" helper call failed
+(because) asset shippers-styles.css not found
+  at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+  at WorkerReporter.createError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:53:12)
+  at getEnhancedHelperError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:400:54)
+  at C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:418:15
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:265:26
+  at async Promise.all (index 0)
+  at async executionFn (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:264:9)
+  at async run (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\createSandbox.js:132:18)
+  at async WorkerReporter.runInSandbox [as _runInSandbox] (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\runInSandbox.js:211:14)
+  at async executeEngine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:322:14)
+  at async engine.engine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:146:14)
+  at async invokeRender (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:61:23)
+  at async WorkerReporter._render (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:148:7)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\reporter.js:227:24
+  at async processAndResponse (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:41:17)
+wrapped by:
+Error: Error when evaluating engine handlebars for template /samples/Shippers/shippers-report
+(because) "asset" helper call failed
+(because) asset shippers-styles.css not found
+  at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+  at WorkerReporter.createError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:53:12)
+  at executeEngine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:345:33)
+  at async engine.engine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:146:14)
+  at async invokeRender (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:61:23)
+  at async WorkerReporter._render (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:148:7)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\reporter.js:227:24
+  at async processAndResponse (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:41:17) rootId=dteowrsexg0h0w0, id=dteowrsexg0h0w0
+2024-04-23T04:47:37.766Z - warn: Rendering request 3 finished with error in 137 ms rootId=dteowrsexg0h0w0, id=dteowrsexg0h0w0
+2024-04-23T04:47:40.465Z - info: Render request 4 queued for execution and waiting for available worker rootId=muj4tv5g4ga04u0, id=muj4tv5g4ga04u0
+2024-04-23T04:47:40.509Z - info: Starting rendering request 4 rootId=muj4tv5g4ga04u0, id=muj4tv5g4ga04u0
+2024-04-23T04:47:40.510Z - info: Rendering template { name: shippers-report, recipe: html, engine: handlebars, preview: true } rootId=muj4tv5g4ga04u0, id=muj4tv5g4ga04u0
+2024-04-23T04:47:40.608Z - warn: Error when processing render request 4
+(because) error when evaluating engine handlebars for template /samples/Shippers/shippers-report
+(because) "asset" helper call failed
+(because) asset shippers-styles.css not found
+
+(system-helpers.js line 293:20)
+
+  291 |
+  292 |   const jsreport = require('jsreport-proxy')
+> 293 |   const assetVal = await jsreport.assets.read(path, encoding)
+      |                    ^
+  294 |   return assetVal
+  295 | }
+  296 |
+
+
+Error: Asset shippers-styles.css not found
+  at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+  at WorkerReporter.createError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:53:12)
+  at readAsset (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-assets\lib\assetsShared.js:121:24)
+  at async Object.read (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-assets\lib\worker.js:136:19)
+  at async Object.asset (system-helpers.js:293:20)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:265:26
+  at async Promise.all (index 0)
+  at async executionFn (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:264:9)
+  at async run (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\createSandbox.js:132:18)
+  at async WorkerReporter.runInSandbox [as _runInSandbox] (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\runInSandbox.js:211:14)
+  at async executeEngine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:322:14)
+  at async engine.engine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:146:14)
+  at async invokeRender (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:61:23)
+  at async WorkerReporter._render (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:148:7)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\reporter.js:227:24
+  at async processAndResponse (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:41:17)
+wrapped by:
+Error: "asset" helper call failed
+(because) asset shippers-styles.css not found
+  at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+  at WorkerReporter.createError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:53:12)
+  at getEnhancedHelperError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:400:54)
+  at C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:418:15
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:265:26
+  at async Promise.all (index 0)
+  at async executionFn (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:264:9)
+  at async run (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\createSandbox.js:132:18)
+  at async WorkerReporter.runInSandbox [as _runInSandbox] (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\runInSandbox.js:211:14)
+  at async executeEngine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:322:14)
+  at async engine.engine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:146:14)
+  at async invokeRender (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:61:23)
+  at async WorkerReporter._render (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:148:7)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\reporter.js:227:24
+  at async processAndResponse (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:41:17)
+wrapped by:
+Error: Error when evaluating engine handlebars for template /samples/Shippers/shippers-report
+(because) "asset" helper call failed
+(because) asset shippers-styles.css not found
+  at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+  at WorkerReporter.createError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:53:12)
+  at executeEngine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:345:33)
+  at async engine.engine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:146:14)
+  at async invokeRender (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:61:23)
+  at async WorkerReporter._render (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:148:7)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\reporter.js:227:24
+  at async processAndResponse (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:41:17) rootId=muj4tv5g4ga04u0, id=muj4tv5g4ga04u0
+2024-04-23T04:47:40.621Z - warn: Rendering request 4 finished with error in 151 ms rootId=muj4tv5g4ga04u0, id=muj4tv5g4ga04u0
+2024-04-23T04:51:15.559Z - info: Render request 5 queued for execution and waiting for available worker rootId=oqffmwzbogjfujq, id=oqffmwzbogjfujq
+2024-04-23T04:51:15.597Z - info: Starting rendering request 5 rootId=oqffmwzbogjfujq, id=oqffmwzbogjfujq
+2024-04-23T04:51:15.598Z - info: Rendering template { name: shippers-report, recipe: html, engine: handlebars, preview: true } rootId=oqffmwzbogjfujq, id=oqffmwzbogjfujq
+2024-04-23T04:51:15.692Z - warn: Error when processing render request 5
+(because) error when evaluating engine handlebars for template /samples/Shippers/shippers-report
+(because) "asset" helper call failed
+(because) asset shippers-styles.css not found
+
+(system-helpers.js line 293:20)
+
+  291 |
+  292 |   const jsreport = require('jsreport-proxy')
+> 293 |   const assetVal = await jsreport.assets.read(path, encoding)
+      |                    ^
+  294 |   return assetVal
+  295 | }
+  296 |
+
+
+Error: Asset shippers-styles.css not found
+  at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+  at WorkerReporter.createError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:53:12)
+  at readAsset (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-assets\lib\assetsShared.js:121:24)
+  at async Object.read (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-assets\lib\worker.js:136:19)
+  at async Object.asset (system-helpers.js:293:20)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:265:26
+  at async Promise.all (index 0)
+  at async executionFn (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:264:9)
+  at async run (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\createSandbox.js:132:18)
+  at async WorkerReporter.runInSandbox [as _runInSandbox] (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\runInSandbox.js:211:14)
+  at async executeEngine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:322:14)
+  at async engine.engine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:146:14)
+  at async invokeRender (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:61:23)
+  at async WorkerReporter._render (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:148:7)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\reporter.js:227:24
+  at async processAndResponse (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:41:17)
+wrapped by:
+Error: "asset" helper call failed
+(because) asset shippers-styles.css not found
+  at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+  at WorkerReporter.createError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:53:12)
+  at getEnhancedHelperError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:400:54)
+  at C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:418:15
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:265:26
+  at async Promise.all (index 0)
+  at async executionFn (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:264:9)
+  at async run (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\createSandbox.js:132:18)
+  at async WorkerReporter.runInSandbox [as _runInSandbox] (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\runInSandbox.js:211:14)
+  at async executeEngine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:322:14)
+  at async engine.engine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:146:14)
+  at async invokeRender (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:61:23)
+  at async WorkerReporter._render (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:148:7)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\reporter.js:227:24
+  at async processAndResponse (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:41:17)
+wrapped by:
+Error: Error when evaluating engine handlebars for template /samples/Shippers/shippers-report
+(because) "asset" helper call failed
+(because) asset shippers-styles.css not found
+  at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+  at WorkerReporter.createError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:53:12)
+  at executeEngine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:345:33)
+  at async engine.engine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:146:14)
+  at async invokeRender (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:61:23)
+  at async WorkerReporter._render (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:148:7)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\reporter.js:227:24
+  at async processAndResponse (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:41:17) rootId=oqffmwzbogjfujq, id=oqffmwzbogjfujq
+2024-04-23T04:51:15.703Z - warn: Rendering request 5 finished with error in 134 ms rootId=oqffmwzbogjfujq, id=oqffmwzbogjfujq
+2024-04-23T04:51:18.857Z - info: Render request 6 queued for execution and waiting for available worker rootId=wqeraosoef9mh90, id=wqeraosoef9mh90
+2024-04-23T04:51:18.904Z - info: Starting rendering request 6 rootId=wqeraosoef9mh90, id=wqeraosoef9mh90
+2024-04-23T04:51:18.907Z - info: Rendering template { name: shippers-report, recipe: html, engine: handlebars, preview: true } rootId=wqeraosoef9mh90, id=wqeraosoef9mh90
+2024-04-23T04:51:19.002Z - warn: Error when processing render request 6
+(because) error when evaluating engine handlebars for template /samples/Shippers/shippers-report
+(because) "asset" helper call failed
+(because) asset shippers-styles.css not found
+
+(system-helpers.js line 293:20)
+
+  291 |
+  292 |   const jsreport = require('jsreport-proxy')
+> 293 |   const assetVal = await jsreport.assets.read(path, encoding)
+      |                    ^
+  294 |   return assetVal
+  295 | }
+  296 |
+
+
+Error: Asset shippers-styles.css not found
+  at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+  at WorkerReporter.createError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:53:12)
+  at readAsset (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-assets\lib\assetsShared.js:121:24)
+  at async Object.read (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-assets\lib\worker.js:136:19)
+  at async Object.asset (system-helpers.js:293:20)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:265:26
+  at async Promise.all (index 0)
+  at async executionFn (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:264:9)
+  at async run (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\createSandbox.js:132:18)
+  at async WorkerReporter.runInSandbox [as _runInSandbox] (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\runInSandbox.js:211:14)
+  at async executeEngine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:322:14)
+  at async engine.engine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:146:14)
+  at async invokeRender (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:61:23)
+  at async WorkerReporter._render (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:148:7)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\reporter.js:227:24
+  at async processAndResponse (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:41:17)
+wrapped by:
+Error: "asset" helper call failed
+(because) asset shippers-styles.css not found
+  at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+  at WorkerReporter.createError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:53:12)
+  at getEnhancedHelperError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:400:54)
+  at C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:418:15
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:265:26
+  at async Promise.all (index 0)
+  at async executionFn (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:264:9)
+  at async run (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\createSandbox.js:132:18)
+  at async WorkerReporter.runInSandbox [as _runInSandbox] (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\runInSandbox.js:211:14)
+  at async executeEngine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:322:14)
+  at async engine.engine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:146:14)
+  at async invokeRender (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:61:23)
+  at async WorkerReporter._render (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:148:7)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\reporter.js:227:24
+  at async processAndResponse (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:41:17)
+wrapped by:
+Error: Error when evaluating engine handlebars for template /samples/Shippers/shippers-report
+(because) "asset" helper call failed
+(because) asset shippers-styles.css not found
+  at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+  at WorkerReporter.createError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:53:12)
+  at executeEngine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:345:33)
+  at async engine.engine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:146:14)
+  at async invokeRender (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:61:23)
+  at async WorkerReporter._render (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:148:7)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\reporter.js:227:24
+  at async processAndResponse (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:41:17) rootId=wqeraosoef9mh90, id=wqeraosoef9mh90
+2024-04-23T04:51:19.017Z - warn: Rendering request 6 finished with error in 183 ms rootId=wqeraosoef9mh90, id=wqeraosoef9mh90
+2024-04-23T04:51:19.782Z - info: Render request 7 queued for execution and waiting for available worker rootId=cxshdgugzv2mrag, id=cxshdgugzv2mrag
+2024-04-23T04:51:19.807Z - info: Starting rendering request 7 rootId=cxshdgugzv2mrag, id=cxshdgugzv2mrag
+2024-04-23T04:51:19.809Z - info: Rendering template { name: shippers-report, recipe: html, engine: handlebars, preview: true } rootId=cxshdgugzv2mrag, id=cxshdgugzv2mrag
+2024-04-23T04:51:19.921Z - warn: Error when processing render request 7
+(because) error when evaluating engine handlebars for template /samples/Shippers/shippers-report
+(because) "asset" helper call failed
+(because) asset shippers-styles.css not found
+
+(system-helpers.js line 293:20)
+
+  291 |
+  292 |   const jsreport = require('jsreport-proxy')
+> 293 |   const assetVal = await jsreport.assets.read(path, encoding)
+      |                    ^
+  294 |   return assetVal
+  295 | }
+  296 |
+
+
+Error: Asset shippers-styles.css not found
+  at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+  at WorkerReporter.createError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:53:12)
+  at readAsset (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-assets\lib\assetsShared.js:121:24)
+  at async Object.read (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-assets\lib\worker.js:136:19)
+  at async Object.asset (system-helpers.js:293:20)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:265:26
+  at async Promise.all (index 0)
+  at async executionFn (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:264:9)
+  at async run (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\createSandbox.js:132:18)
+  at async WorkerReporter.runInSandbox [as _runInSandbox] (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\runInSandbox.js:211:14)
+  at async executeEngine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:322:14)
+  at async engine.engine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:146:14)
+  at async invokeRender (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:61:23)
+  at async WorkerReporter._render (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:148:7)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\reporter.js:227:24
+  at async processAndResponse (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:41:17)
+wrapped by:
+Error: "asset" helper call failed
+(because) asset shippers-styles.css not found
+  at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+  at WorkerReporter.createError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:53:12)
+  at getEnhancedHelperError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:400:54)
+  at C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:418:15
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:265:26
+  at async Promise.all (index 0)
+  at async executionFn (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:264:9)
+  at async run (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\createSandbox.js:132:18)
+  at async WorkerReporter.runInSandbox [as _runInSandbox] (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\sandbox\runInSandbox.js:211:14)
+  at async executeEngine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:322:14)
+  at async engine.engine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:146:14)
+  at async invokeRender (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:61:23)
+  at async WorkerReporter._render (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:148:7)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\reporter.js:227:24
+  at async processAndResponse (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:41:17)
+wrapped by:
+Error: Error when evaluating engine handlebars for template /samples/Shippers/shippers-report
+(because) "asset" helper call failed
+(because) asset shippers-styles.css not found
+  at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+  at WorkerReporter.createError (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:53:12)
+  at executeEngine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:345:33)
+  at async engine.engine (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\executeEngine.js:146:14)
+  at async invokeRender (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:61:23)
+  at async WorkerReporter._render (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:148:7)
+  at async C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\reporter.js:227:24
+  at async processAndResponse (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:41:17) rootId=cxshdgugzv2mrag, id=cxshdgugzv2mrag
+2024-04-23T04:51:19.932Z - warn: Rendering request 7 finished with error in 145 ms rootId=cxshdgugzv2mrag, id=cxshdgugzv2mrag
+2024-04-23T04:51:47.568Z - info: Render request 8 queued for execution and waiting for available worker rootId=j62skjpg3si29h9, id=j62skjpg3si29h9
+2024-04-23T04:51:47.588Z - info: Starting rendering request 8 rootId=j62skjpg3si29h9, id=j62skjpg3si29h9
+2024-04-23T04:51:47.589Z - info: Rendering template { name: shippers-report, recipe: html, engine: handlebars, preview: true } rootId=j62skjpg3si29h9, id=j62skjpg3si29h9
+2024-04-23T04:51:47.607Z - info: Rendering request 8 finished in 39 ms rootId=j62skjpg3si29h9, id=j62skjpg3si29h9
+2024-04-23T06:41:11.108Z - info: fs store is loading data
+2024-04-23T06:54:20.768Z - info: Render request 9 queued for execution and waiting for available worker rootId=oikpztdttywqm8e, id=oikpztdttywqm8e
+2024-04-23T06:54:20.777Z - info: Starting rendering request 9 rootId=oikpztdttywqm8e, id=oikpztdttywqm8e
+2024-04-23T06:54:20.778Z - info: Rendering template { name: shippers-report, recipe: chrome-pdf, engine: handlebars, preview: false } rootId=oikpztdttywqm8e, id=oikpztdttywqm8e
+2024-04-23T06:54:22.303Z - info: Rendering request 9 finished in 1535 ms rootId=oikpztdttywqm8e, id=oikpztdttywqm8e
+2024-04-23T06:54:39.312Z - info: Render request 10 queued for execution and waiting for available worker rootId=tkmlb91y3h0g9p6, id=tkmlb91y3h0g9p6
+2024-04-23T06:54:39.322Z - info: Starting rendering request 10 rootId=tkmlb91y3h0g9p6, id=tkmlb91y3h0g9p6
+2024-04-23T06:54:39.323Z - info: Rendering template { name: shippers-report, recipe: chrome-pdf, engine: handlebars, preview: false } rootId=tkmlb91y3h0g9p6, id=tkmlb91y3h0g9p6
+2024-04-23T06:54:39.884Z - info: Rendering request 10 finished in 572 ms rootId=tkmlb91y3h0g9p6, id=tkmlb91y3h0g9p6
+2024-04-23T06:57:46.100Z - info: Render request 11 queued for execution and waiting for available worker rootId=nun1xvtqv9wyowb, id=nun1xvtqv9wyowb
+2024-04-23T06:57:46.108Z - info: Starting rendering request 11 rootId=nun1xvtqv9wyowb, id=nun1xvtqv9wyowb
+2024-04-23T06:57:46.108Z - info: Rendering template { name: shippers-report, recipe: chrome-pdf, engine: handlebars, preview: false } rootId=nun1xvtqv9wyowb, id=nun1xvtqv9wyowb
+2024-04-23T06:57:46.299Z - info: Rendering request 11 finished in 199 ms rootId=nun1xvtqv9wyowb, id=nun1xvtqv9wyowb
+2024-04-23T09:50:51.877Z - info: fs store is loading data
+2024-04-23T13:40:26.143Z - info: Render request 12 queued for execution and waiting for available worker rootId=mjkbnm9adhpov4p, id=mjkbnm9adhpov4p
+2024-04-23T13:40:26.178Z - info: Starting rendering request 12 rootId=mjkbnm9adhpov4p, id=mjkbnm9adhpov4p
+2024-04-23T13:40:26.178Z - info: Rendering template { name: shippers-report, recipe: chrome-pdf, engine: handlebars, preview: false } rootId=mjkbnm9adhpov4p, id=mjkbnm9adhpov4p
+2024-04-23T13:40:27.358Z - info: Rendering request 12 finished in 1220 ms rootId=mjkbnm9adhpov4p, id=mjkbnm9adhpov4p
+2024-04-23T13:47:26.097Z - info: Render request 13 queued for execution and waiting for available worker rootId=oe796372nj6h4zj, id=oe796372nj6h4zj
+2024-04-23T13:47:26.126Z - info: Starting rendering request 13 rootId=oe796372nj6h4zj, id=oe796372nj6h4zj
+2024-04-23T13:47:26.127Z - info: Rendering template { name: shippers-report, recipe: chrome-pdf, engine: handlebars, preview: false } rootId=oe796372nj6h4zj, id=oe796372nj6h4zj
+2024-04-23T13:47:26.915Z - info: Rendering request 13 finished in 819 ms rootId=oe796372nj6h4zj, id=oe796372nj6h4zj
+2024-04-30T02:26:36.699Z - info: Initializing jsreport (version: 4.3.1, configuration file: jsreport.config.json, nodejs: 20.11.1)
+2024-04-30T02:26:36.705Z - info: Searching for available extensions in C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\
+2024-04-30T02:26:36.712Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\
+2024-04-30T02:26:36.734Z - info: Found 35 extension(s)
+2024-04-30T02:26:36.840Z - info: Using extension base@4.0.0
+2024-04-30T02:26:36.845Z - info: Using extension child-templates@4.1.0
+2024-04-30T02:26:36.850Z - info: Using extension cli@4.0.4
+2024-04-30T02:26:36.854Z - info: Using extension components@4.0.0
+2024-04-30T02:26:36.857Z - info: Using extension data@4.1.0
+2024-04-30T02:26:36.859Z - info: Using extension express@4.1.1
+2024-04-30T02:26:37.567Z - info: Using extension freeze@4.0.0
+2024-04-30T02:26:37.571Z - info: Using extension fs-store@4.0.3
+2024-04-30T02:26:37.795Z - info: Using extension handlebars@4.0.1
+2024-04-30T02:26:37.797Z - info: Using extension import-export@4.0.3
+2024-04-30T02:26:37.818Z - info: Using extension jsrender@4.0.0
+2024-04-30T02:26:37.820Z - info: Using extension licensing@4.0.2
+2024-04-30T02:26:37.857Z - info: Using extension localization@4.0.1
+2024-04-30T02:26:37.859Z - info: Using extension npm@4.0.0
+2024-04-30T02:26:37.862Z - info: Using extension pdf-utils@4.1.1
+2024-04-30T02:26:37.866Z - info: Using extension reports@4.1.1
+2024-04-30T02:26:37.870Z - info: Using extension tags@4.0.1
+2024-04-30T02:26:37.874Z - info: Using extension text@4.0.0
+2024-04-30T02:26:37.875Z - info: Using extension version-control@4.0.0
+2024-04-30T02:26:37.890Z - info: Using extension assets@4.1.0
+2024-04-30T02:26:37.912Z - info: Using extension authorization@4.0.0
+2024-04-30T02:26:37.919Z - info: Using extension browser-client@4.1.0
+2024-04-30T02:26:37.924Z - info: Using extension chrome-pdf@4.1.0
+2024-04-30T02:26:37.928Z - info: Using extension docx@4.2.1
+2024-04-30T02:26:37.931Z - info: Using extension html-to-xlsx@4.1.1
+2024-04-30T02:26:38.628Z - info: html-to-xlsx detected chrome as available html engine
+2024-04-30T02:26:38.629Z - info: Using extension pptx@4.2.0
+2024-04-30T02:26:38.632Z - info: Using extension scheduling@4.0.0
+2024-04-30T02:26:38.672Z - info: Using extension scripts@4.1.0
+2024-04-30T02:26:38.674Z - info: Using extension static-pdf@4.1.0
+2024-04-30T02:26:38.676Z - info: Using extension studio@4.1.0
+2024-04-30T02:26:38.794Z - info: Using extension xlsx@4.1.0
+2024-04-30T02:26:38.797Z - info: Using extension public-templates@4.0.0
+2024-04-30T02:26:38.800Z - info: Using extension sample-template@4.0.0
+2024-04-30T02:26:38.804Z - info: Using extension studio-theme-dark@4.0.0
+2024-04-30T02:26:38.807Z - info: Using general timeout for rendering (reportTimeout: 60000)
+2024-04-30T02:26:38.808Z - info: Using fs provider for template store.
+2024-04-30T02:26:38.812Z - info: fs store is persisting using fs for C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\data
+2024-04-30T02:26:38.819Z - info: fs store is loading data
+2024-04-30T02:26:38.848Z - info: fs store is initialized successfully
+2024-04-30T02:26:38.861Z - info: Creating default express app.
+2024-04-30T02:26:38.895Z - info: jsreport server successfully started on http port: 5488
+2024-04-30T02:26:38.896Z - info: Verifying license key free
+2024-04-30T02:26:38.897Z - info: Using free license
+2024-04-30T02:26:38.902Z - info: Initializing worker threads
+2024-04-30T02:26:40.220Z - info: 2 worker threads initialized in 1318ms
+2024-04-30T02:26:40.221Z - info: Starting temp files cleanup with 180000ms threshold
+2024-04-30T02:26:40.222Z - info: reporter initialized
+2024-04-30T02:27:41.927Z - info: Initializing jsreport (version: 4.3.1, configuration file: jsreport.config.json, nodejs: 20.11.1)
+2024-04-30T02:27:41.931Z - info: Searching for available extensions in C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\
+2024-04-30T02:27:41.938Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\
+2024-04-30T02:27:41.951Z - info: Found 35 extension(s)
+2024-04-30T02:27:42.031Z - info: Using extension base@4.0.0
+2024-04-30T02:27:42.037Z - info: Using extension child-templates@4.1.0
+2024-04-30T02:27:42.041Z - info: Using extension cli@4.0.4
+2024-04-30T02:27:42.044Z - info: Using extension components@4.0.0
+2024-04-30T02:27:42.047Z - info: Using extension data@4.1.0
+2024-04-30T02:27:42.049Z - info: Using extension express@4.1.1
+2024-04-30T02:27:42.539Z - info: Using extension freeze@4.0.0
+2024-04-30T02:27:42.542Z - info: Using extension fs-store@4.0.3
+2024-04-30T02:27:42.708Z - info: Using extension handlebars@4.0.1
+2024-04-30T02:27:42.711Z - info: Using extension import-export@4.0.3
+2024-04-30T02:27:42.724Z - info: Using extension jsrender@4.0.0
+2024-04-30T02:27:42.726Z - info: Using extension licensing@4.0.2
+2024-04-30T02:27:42.761Z - info: Using extension localization@4.0.1
+2024-04-30T02:27:42.762Z - info: Using extension npm@4.0.0
+2024-04-30T02:27:42.767Z - info: Using extension pdf-utils@4.1.1
+2024-04-30T02:27:42.770Z - info: Using extension reports@4.1.1
+2024-04-30T02:27:42.775Z - info: Using extension tags@4.0.1
+2024-04-30T02:27:42.778Z - info: Using extension text@4.0.0
+2024-04-30T02:27:42.780Z - info: Using extension version-control@4.0.0
+2024-04-30T02:27:42.790Z - info: Using extension assets@4.1.0
+2024-04-30T02:27:42.808Z - info: Using extension authorization@4.0.0
+2024-04-30T02:27:42.814Z - info: Using extension browser-client@4.1.0
+2024-04-30T02:27:42.818Z - info: Using extension chrome-pdf@4.1.0
+2024-04-30T02:27:42.823Z - info: Using extension docx@4.2.1
+2024-04-30T02:27:42.826Z - info: Using extension html-to-xlsx@4.1.1
+2024-04-30T02:27:43.386Z - info: html-to-xlsx detected chrome as available html engine
+2024-04-30T02:27:43.387Z - info: Using extension pptx@4.2.0
+2024-04-30T02:27:43.389Z - info: Using extension scheduling@4.0.0
+2024-04-30T02:27:43.431Z - info: Using extension scripts@4.1.0
+2024-04-30T02:27:43.434Z - info: Using extension static-pdf@4.1.0
+2024-04-30T02:27:43.436Z - info: Using extension studio@4.1.0
+2024-04-30T02:27:43.530Z - info: Using extension xlsx@4.1.0
+2024-04-30T02:27:43.533Z - info: Using extension public-templates@4.0.0
+2024-04-30T02:27:43.538Z - info: Using extension sample-template@4.0.0
+2024-04-30T02:27:43.542Z - info: Using extension studio-theme-dark@4.0.0
+2024-04-30T02:27:43.545Z - info: Using general timeout for rendering (reportTimeout: 60000)
+2024-04-30T02:27:43.546Z - info: Using fs provider for template store.
+2024-04-30T02:27:43.550Z - info: fs store is persisting using fs for C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\data
+2024-04-30T02:27:43.556Z - info: fs store is loading data
+2024-04-30T02:27:43.588Z - info: fs store is initialized successfully
+2024-04-30T02:27:43.598Z - info: Creating default express app.
+2024-04-30T02:27:43.621Z - info: jsreport server successfully started on http port: 5488
+2024-04-30T02:27:43.622Z - info: Verifying license key free
+2024-04-30T02:27:43.623Z - info: Using free license
+2024-04-30T02:27:43.627Z - info: Initializing worker threads
+2024-04-30T02:27:44.809Z - info: 2 worker threads initialized in 1182ms
+2024-04-30T02:27:44.809Z - info: Starting temp files cleanup with 180000ms threshold
+2024-04-30T02:27:44.810Z - info: reporter initialized
+2024-04-30T02:33:16.062Z - info: Initializing jsreport (version: 4.3.1, configuration file: jsreport.config.json, nodejs: 20.11.1)
+2024-04-30T02:33:16.066Z - info: Searching for available extensions in C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\
+2024-04-30T02:33:16.071Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\
+2024-04-30T02:33:16.083Z - info: Found 35 extension(s)
+2024-04-30T02:33:16.167Z - info: Using extension base@4.0.0
+2024-04-30T02:33:16.172Z - info: Using extension child-templates@4.1.0
+2024-04-30T02:33:16.178Z - info: Using extension cli@4.0.4
+2024-04-30T02:33:16.182Z - info: Using extension components@4.0.0
+2024-04-30T02:33:16.188Z - info: Using extension data@4.1.0
+2024-04-30T02:33:16.191Z - info: Using extension express@4.1.1
+2024-04-30T02:33:16.645Z - info: Using extension freeze@4.0.0
+2024-04-30T02:33:16.648Z - info: Using extension fs-store@4.0.3
+2024-04-30T02:33:16.803Z - info: Using extension handlebars@4.0.1
+2024-04-30T02:33:16.805Z - info: Using extension import-export@4.0.3
+2024-04-30T02:33:16.818Z - info: Using extension jsrender@4.0.0
+2024-04-30T02:33:16.820Z - info: Using extension licensing@4.0.2
+2024-04-30T02:33:16.849Z - info: Using extension localization@4.0.1
+2024-04-30T02:33:16.851Z - info: Using extension npm@4.0.0
+2024-04-30T02:33:16.857Z - info: Using extension pdf-utils@4.1.1
+2024-04-30T02:33:16.861Z - info: Using extension reports@4.1.1
+2024-04-30T02:33:16.864Z - info: Using extension tags@4.0.1
+2024-04-30T02:33:16.867Z - info: Using extension text@4.0.0
+2024-04-30T02:33:16.868Z - info: Using extension version-control@4.0.0
+2024-04-30T02:33:16.878Z - info: Using extension assets@4.1.0
+2024-04-30T02:33:16.895Z - info: Using extension authorization@4.0.0
+2024-04-30T02:33:16.901Z - info: Using extension browser-client@4.1.0
+2024-04-30T02:33:16.904Z - info: Using extension chrome-pdf@4.1.0
+2024-04-30T02:33:16.908Z - info: Using extension docx@4.2.1
+2024-04-30T02:33:16.911Z - info: Using extension html-to-xlsx@4.1.1
+2024-04-30T02:33:17.409Z - info: html-to-xlsx detected chrome as available html engine
+2024-04-30T02:33:17.409Z - info: Using extension pptx@4.2.0
+2024-04-30T02:33:17.412Z - info: Using extension scheduling@4.0.0
+2024-04-30T02:33:17.442Z - info: Using extension scripts@4.1.0
+2024-04-30T02:33:17.444Z - info: Using extension static-pdf@4.1.0
+2024-04-30T02:33:17.445Z - info: Using extension studio@4.1.0
+2024-04-30T02:33:17.530Z - info: Using extension xlsx@4.1.0
+2024-04-30T02:33:17.533Z - info: Using extension public-templates@4.0.0
+2024-04-30T02:33:17.535Z - info: Using extension sample-template@4.0.0
+2024-04-30T02:33:17.538Z - info: Using extension studio-theme-dark@4.0.0
+2024-04-30T02:33:17.539Z - info: Using general timeout for rendering (reportTimeout: 60000)
+2024-04-30T02:33:17.539Z - info: Using fs provider for template store.
+2024-04-30T02:33:17.543Z - info: fs store is persisting using fs for C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\data
+2024-04-30T02:33:17.549Z - info: fs store is loading data
+2024-04-30T02:33:17.575Z - info: fs store is initialized successfully
+2024-04-30T02:33:17.585Z - info: Creating default express app.
+2024-04-30T02:33:17.606Z - info: jsreport server successfully started on http port: 5488
+2024-04-30T02:33:17.607Z - info: Verifying license key free
+2024-04-30T02:33:17.608Z - info: Using free license
+2024-04-30T02:33:17.611Z - info: Initializing worker threads
+2024-04-30T02:33:18.854Z - info: 2 worker threads initialized in 1243ms
+2024-04-30T02:33:18.855Z - info: Starting temp files cleanup with 180000ms threshold
+2024-04-30T02:33:18.856Z - info: reporter initialized
+2024-04-30T02:33:50.634Z - info: Render request 1 queued for execution and waiting for available worker rootId=jkw228ewqtp0v5b, id=jkw228ewqtp0v5b
+2024-04-30T02:33:50.663Z - info: Starting rendering request 1 rootId=jkw228ewqtp0v5b, id=jkw228ewqtp0v5b
+2024-04-30T02:33:50.664Z - info: Rendering template { name: shippers-report, recipe: chrome-pdf, engine: handlebars, preview: false } rootId=jkw228ewqtp0v5b, id=jkw228ewqtp0v5b
+2024-04-30T02:33:53.550Z - info: Rendering request 1 finished in 2918 ms rootId=jkw228ewqtp0v5b, id=jkw228ewqtp0v5b
+2024-04-30T02:34:10.725Z - info: Render request 2 queued for execution and waiting for available worker rootId=4sp4vexzbysyrzn, id=4sp4vexzbysyrzn
+2024-04-30T02:34:10.796Z - info: Starting rendering request 2 rootId=4sp4vexzbysyrzn, id=4sp4vexzbysyrzn
+2024-04-30T02:34:10.796Z - info: Rendering template { name: shippers-report, recipe: chrome-pdf, engine: handlebars, preview: false } rootId=4sp4vexzbysyrzn, id=4sp4vexzbysyrzn
+2024-04-30T02:34:12.605Z - info: Rendering request 2 finished in 1881 ms rootId=4sp4vexzbysyrzn, id=4sp4vexzbysyrzn
+2024-04-30T02:34:24.856Z - info: Render request 3 queued for execution and waiting for available worker rootId=ss83g880l8i4fz6, id=ss83g880l8i4fz6
+2024-04-30T02:34:24.873Z - info: Starting rendering request 3 rootId=ss83g880l8i4fz6, id=ss83g880l8i4fz6
+2024-04-30T02:34:24.873Z - info: Rendering template { name: shippers-report, recipe: chrome-pdf, engine: handlebars, preview: false } rootId=ss83g880l8i4fz6, id=ss83g880l8i4fz6
+2024-04-30T02:34:25.417Z - info: Rendering request 3 finished in 562 ms rootId=ss83g880l8i4fz6, id=ss83g880l8i4fz6
+2024-04-30T04:04:50.099Z - error: Error when processing OData POST: /odata/assets Error: Entity name can not be empty
+    at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+    at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\main\validateEntityName.js:26:11)
+    at Object.insert (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\main\store\collection.js:123:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
