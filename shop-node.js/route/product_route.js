@@ -1,16 +1,16 @@
 const express = require('express')    //ใช้ module express
 const router = express.Router();  //ใช้ function router ของ express
-const Db = require('../controller/shippers') //import shipper ในตัวแปร Db
+const Db = require('../controller/product') //import shipper ในตัวแปร Db
 
 // middleware
 router.use((req, res,next)=>{
     console.log('middleware');
     next();
 });
-//http://localhost:8080/api/ship
-router.route('/ship').get((req, res)=>{
-Db.getShip().then((data)=>{    // เรียกใช้ function getShip() และ return data กลับมา 
-    // console.log(data);      
+
+//http://localhost:8080/api/product
+router.route('/product').get((req, res)=>{
+Db.getProduct().then((data)=>{    // เรียกใช้ function getProduct() และ return data กลับมา      
     res.status(200).json({data:data, message: 'get data success'});  // ส่ง http code 200 และแสดง data
                          // message ในรูปแบบ json
 }).catch(err=>{
@@ -19,9 +19,9 @@ Db.getShip().then((data)=>{    // เรียกใช้ function getShip() �
     console.log(err);
 });
 })
-//http://localhost:8080/api/ship/1
-router.route('/ship/:id').get((req, res)=>{    // ส่ง parameter id
-    Db.getShipByID(req.params.id).then((data)=>{  // เรียกใช้ function getShipByID(id) / req.params.id ดึงค่า parameter id
+//http://localhost:8080/api/product/1
+router.route('/product/:id').get((req, res)=>{    // ส่ง parameter id
+    Db.getShipByID(req.params.id).then((data)=>{  // เรียกใช้ function getProductByID(id) / req.params.id ดึงค่า parameter id
         res.status(200).json({data:data, message: 'get id data success'});  // ส่ง http code 200 และแสดง data
                              // message ในรูปแบบ json
     }).catch(err=>{
@@ -30,10 +30,11 @@ router.route('/ship/:id').get((req, res)=>{    // ส่ง parameter id
         console.log(err);
     });
     })
-    //http://localhost:8080/api/ship
-    router.route('/ship').post((req, res)=>{
-        let ship = { ...req.body } //ส่ง req.body เป็นข้อมูล json เข้าไปยังตัวแปร ship
-        Db.postShip(ship).then((data)=>{    // เรียกใช้ function postShip() สง ship และ return data กลับมา 
+    //http://localhost:8080/api/product
+    router.route('/product').post((req, res)=>{
+        let product = { ProductName :req.body.ProductName, Picture: req.body.Picture, Price: req.body.Price } //ส่ง req.body เป็นข้อมูล json เข้าไปยังตัวแปร product
+        console.log(product)
+        Db.postProduct(product).then((data)=>{    // เรียกใช้ function postProduct() สง product และ return data กลับมา 
             if(data.code == 'success') //return data.codde กลับมาเป็น success
             {
               res.status(200).json({ data: data, message: 'new data success' });
@@ -50,10 +51,10 @@ router.route('/ship/:id').get((req, res)=>{    // ส่ง parameter id
         });
         })
 
-//http://localhost:8080/api/ship
-router.route('/ship/:id').put((req, res)=>{
-    let ship = { ...req.body } //ส่ง req.body เป็นข้อมูล json เข้าไปยังตัวแปร ship
-    Db.putShip(ship, req.params.id).then((data)=>{    // เรียกใช้ function putShip() สง ship และ return data กลับมา 
+//http://localhost:8080/api/product
+router.route('/product/:id').put((req, res)=>{
+    let ship = { ...req.body } //ส่ง req.body เป็นข้อมูล json เข้าไปยังตัวแปร product
+    Db.putShip(ship, req.params.id).then((data)=>{    // เรียกใช้ function putProduct() สง product และ return data กลับมา 
         if(data.code == 'success') //return data.codde กลับมาเป็น success
         {
           res.status(200).json({ data: data, message: 'update data success' });
@@ -70,9 +71,9 @@ router.route('/ship/:id').put((req, res)=>{
     });
     })
 
-//http://localhost:8080/api/ship
-router.route('/ship/:id').delete((req, res)=>{
-    Db.deleteShip(req.params.id).then((data)=>{    // เรียกใช้ function putShip() สง ship และ return data กลับมา 
+//http://localhost:8080/api/product
+router.route('/product/:id').delete((req, res)=>{
+    Db.deleteProduct(req.params.id).then((data)=>{    // เรียกใช้ function putProduct() สง product และ return data กลับมา 
         if(data.code == 'success') //return data.codde กลับมาเป็น success
         {
           res.status(200).json({ data: data, message: 'delete data success' });

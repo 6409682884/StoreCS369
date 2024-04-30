@@ -11,11 +11,13 @@ function App() {
   const [datafilter, setDataFilter] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const [file, setFile] = useState(null);
   // Get Data From API
   const fetchDataForPosts = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/api/ship`);
+      const response = await fetch(`http://localhost:8080/api/product`, {
+        method: "GET"
+      });
       if (!response.ok) {
         throw new Error(`HTTP error: Status ${response.status}`);
       }
@@ -33,31 +35,66 @@ function App() {
 
   // Fetch data on component mount
   useEffect(() => {
-    fetchDataForPosts();
+    const timeout = setTimeout(() => {
+      fetchDataForPosts();
+      setPending(false);
+    }, 3000);
+    return () => clearTimeout(timeout);
   }, []);
 
   const HeaderColumns =
     [
       {
-        name: 'ShipperID',
-        selector: row => row.ShipperID
+        name: 'ProductID',
+        selector: row => row.ProductID
       },
       {
-        name: 'CompanyName',
-        selector: row => row.CompanyName
+        name: 'ProductName',
+        cell: row => <a href={`http://localhost:8080/api/product/${row.ProductID}`}>{row.ProductName}</a>
       },
       {
-        name: 'Phone',
-        selector: row => row.Phone
+        name: 'Price',
+        selector: row => row.Price
+      },
+      {
+        name: 'Picture',
+        cell: row => <img src={row.Picture} alt="Product Image" />
+      },
+      {
+        name: 'Detail',
+        selector: row => <a href='row.ProductID'>Detail</a>
       },
     ];
+
+  const customStyles = {
+    rows: {
+      style: {
+        minHeight: '72px', // override the row height
+      },
+    },
+    headCells: {
+      style: {
+        paddingLeft: '8px', // override the cell padding for head cells
+        paddingRight: '8px',
+      },
+    },
+    cells: {
+      style: {
+        paddingLeft: '8px', // override the cell padding for data cells
+        paddingRight: '8px',
+      },
+    },
+  };
+  const [pending, setPending] = React.useState(true);
+
   const datas = []
 
   // set state เปิด-ปิด form
   const [statusAdd, setStatusAdd] = useState(false);
+  const [statusInfo, setStatusInfo] = useState(false);
   function handleFilter(event) {
     const newData = datafilter.filter(row => {
-      return row.CompanyName.toLowerCase().includes(event.target.value.toLowerCase())
+      return row.ProductName.toLowerCase().includes(event.target.value.toLowerCase())
     })
     setData(newData)
   }
@@ -67,18 +104,46 @@ function App() {
   function handleClickCloseForm(event) {
     setStatusAdd(false)
   }
-  const [formValue, setFormValue] = useState({ CompanyName: '', Phone: '' })
-  const handlePostShip = (e) => {
+
+  function handleClickInfo(event) {
+    setStatusInfo(true)
+  }
+  function handleClickCloseInfo(event) {
+    setStatusInfo(false)
+  }
+  const [formValue, setFormValue] = useState({ ProductName: '', Price: '' })
+  const handlePostProduct = (e) => {
     const { name, value } = e.target;
     setFormValue({ ...formValue, [name]: value });
   }
+
+  const upload = async () => {
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const response = await fetch("http://localhost:8080/upload", {
+        method: "POST",
+        body: formData
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to upload file");
+      }
+
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
   // กด submit post data
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const allInputValue = { CompanyName: formValue.CompanyName, Phone: formValue.Phone }
-    console.log(allInputValue)
+    const img = await upload();
+    const allInputValue = { ProductName: formValue.ProductName, Picture: img ? file.name : "", Price: formValue.Price }
 
-    let res = await fetch("http://localhost:8080/api/ship", {
+    let res = await fetch("http://localhost:8080/api/product", {
       method: "POST",
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(allInputValue)
@@ -115,13 +180,12 @@ function App() {
     //กด delete
     const handleDelete = (id) => {
 
-      if (window.confirm(`Are you sure you want to delete:\r ${selectedRows.map(r => r.CompanyName)}?`)) {
+      if (window.confirm(`Are you sure you want to delete:\r ${selectedRows.map(r => r.ProductName)}?`)) {
         setToggleCleared(!toggleCleared);
         console.log(selectedRows)
-
-        const shipperIDs = selectedRows.map(item => item.ShipperID);
-        shipperIDs.forEach(shipperID => {
-          fetch(`http://localhost:8080/api/ship/${shipperID}`, {
+        const ProductIDs = selectedRows.map(item => item.ProductID);
+        ProductIDs.forEach(ProductID => {
+          fetch(`http://localhost:8080/api/product/${ProductID}`, {
             method: "DELETE",
             headers: { 'content-type': 'application/json' },
           })
@@ -129,13 +193,13 @@ function App() {
               if (res.status === 200) {
                 setStatusAdd(false);
                 fetchDataForPosts();
-                console.log(`ShipperID ${shipperID} deleted successfully`);
+                console.log(`ProductID ${ProductID} deleted successfully`);
               } else {
-                console.error(`Failed to delete ShipperID ${shipperID}`);
+                console.error(`Failed to delete ShipperID ${ProductID}`);
               }
             })
             .catch(error => {
-              console.error(`Error deleting ShipperID ${shipperID}:`, error);
+              console.error(`Error deleting ProductID ${ProductID}:`, error);
             });
         });
 
@@ -150,33 +214,35 @@ function App() {
     );
   }, [data, selectedRows, toggleCleared]);
 
-
   return (
     <div className='container'>
       <div style={{ alignSelf: 'end', display: 'flex', justifyContent: 'space-evenly', gap: '0.5rem' }}>
 
-        {statusAdd == false &&
+        {(statusAdd == false && statusInfo == false) &&
           <div>
 
-            <a href='http://localhost:8080/report/ship' style={{ margin: '0 0.5rem 0 0.5rem' }}><button>REPORT</button></a>
+            <a href='http://localhost:8080/report/products' style={{ margin: '0 0.5rem 0 0.5rem' }}><button>REPORT</button></a>
             <button onClick={handleClickAdd}>+</button>
-            <input type='text' placeholder='Search Company Name' onChange={handleFilter} style={{ margin: '0 0.5rem 0 0.5rem' }} />
+            <input type='text' placeholder='Search Product Name' onChange={handleFilter} style={{ margin: '0 0.5rem 0 0.5rem' }} />
           </div>}
 
         {statusAdd == true && <button onClick={handleClickCloseForm}>X</button>}
-
+        {statusInfo == true && <button onClick={handleClickCloseInfo}>X</button>}
       </div>
-      {statusAdd == false &&
+      {(statusAdd == false && statusInfo == false) &&
         <div>
           <DataTable
             theme="default"
-            title="Shiping Data"
+            title="Store"
             columns={HeaderColumns}
             selectableRows
             contextActions={contextActions}
             onSelectedRowsChange={handleRowSelected}
             clearSelectedRows={toggleCleared}
             data={data || datas}
+            customStyles={customStyles}
+            progressPending={pending}
+            pagination
           />
         </div>}
 
@@ -187,32 +253,38 @@ function App() {
             onSubmit={handleSubmit}
             method="POST"
           >
-            <div><h4>เพิ่มข้อมูล</h4></div>
+            <div><h4>เพิ่มรายการสินค้า</h4></div>
             <div>
               <input
                 type="text"
-                placeholder="CompanyName"
-                name="CompanyName"
-                value={formValue.CompanyName}
-                onChange={handlePostShip}
+                placeholder="ProductName"
+                name="ProductName"
+                value={formValue.ProductName}
+                onChange={handlePostProduct}
 
               />
             </div>
             <div >
               <input
-                type="text"
-                placeholder="Phone"
-                name="Phone"
-                value={formValue.Phone}
-                onChange={handlePostShip}
+                type="file"
+                placeholder="Picture"
+                name="Picture"
+                value={formValue.Picture}
+                onChange={e => setFile(e.target.files[0])}
+              />
+            </div>
+            <div>
+              <input
+                type="number"
+                placeholder="Price"
+                name="Price"
+                value={formValue.Price}
+                onChange={handlePostProduct}
 
               />
             </div>
-
             <div>
-              <button
-                type="submit"
-              >
+              <button type="submit">
                 submit
               </button>
             </div>
@@ -220,6 +292,11 @@ function App() {
           </form>
         </div>}
 
+      {statusInfo == true &&
+        <div>
+
+        </div>
+      }
     </div>
   );
 }

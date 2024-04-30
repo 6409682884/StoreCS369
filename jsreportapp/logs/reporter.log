@@ -737,3 +737,107 @@ Error: Error when evaluating engine handlebars for template /samples/Shippers/sh
     at module.exports (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\main\validateEntityName.js:26:11)
     at Object.insert (C:\Users\Saksorn\Downloads\New folder (4)\hello-node.js670408\jsreportapp\node_modules\@jsreport\jsreport-core\lib\main\store\collection.js:123:7)
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-04-30T05:31:39.294Z - info: Initializing jsreport (version: 4.3.1, configuration file: jsreport.config.json, nodejs: 20.11.1)
+2024-04-30T05:31:39.297Z - info: Searching for available extensions in C:\Users\Saksorn\Documents\GitHub\StoreCS369\jsreportapp\
+2024-04-30T05:31:39.302Z - info: Extensions location cache doesn't contain entry yet, crawling
+2024-04-30T05:31:41.051Z - info: Found 35 extension(s)
+2024-04-30T05:31:41.117Z - info: Using extension base@4.0.0
+2024-04-30T05:31:41.122Z - info: Using extension child-templates@4.1.0
+2024-04-30T05:31:41.126Z - info: Using extension cli@4.0.4
+2024-04-30T05:31:41.129Z - info: Using extension components@4.0.0
+2024-04-30T05:31:41.131Z - info: Using extension data@4.1.0
+2024-04-30T05:31:41.133Z - info: Using extension express@4.1.1
+2024-04-30T05:31:41.480Z - info: Using extension freeze@4.0.0
+2024-04-30T05:31:41.483Z - info: Using extension fs-store@4.0.3
+2024-04-30T05:31:41.616Z - info: Using extension handlebars@4.0.1
+2024-04-30T05:31:41.618Z - info: Using extension import-export@4.0.3
+2024-04-30T05:31:41.629Z - info: Using extension jsrender@4.0.0
+2024-04-30T05:31:41.631Z - info: Using extension licensing@4.0.2
+2024-04-30T05:31:41.656Z - info: Using extension localization@4.0.1
+2024-04-30T05:31:41.657Z - info: Using extension npm@4.0.0
+2024-04-30T05:31:41.660Z - info: Using extension pdf-utils@4.1.1
+2024-04-30T05:31:41.663Z - info: Using extension reports@4.1.1
+2024-04-30T05:31:41.665Z - info: Using extension tags@4.0.1
+2024-04-30T05:31:41.667Z - info: Using extension text@4.0.0
+2024-04-30T05:31:41.669Z - info: Using extension version-control@4.0.0
+2024-04-30T05:31:41.678Z - info: Using extension assets@4.1.0
+2024-04-30T05:31:41.689Z - info: Using extension authorization@4.0.0
+2024-04-30T05:31:41.694Z - info: Using extension browser-client@4.1.0
+2024-04-30T05:31:41.697Z - info: Using extension chrome-pdf@4.1.0
+2024-04-30T05:31:41.700Z - info: Using extension docx@4.2.1
+2024-04-30T05:31:41.703Z - info: Using extension html-to-xlsx@4.1.1
+2024-04-30T05:31:42.121Z - info: html-to-xlsx detected chrome as available html engine
+2024-04-30T05:31:42.121Z - info: Using extension pptx@4.2.0
+2024-04-30T05:31:42.123Z - info: Using extension scheduling@4.0.0
+2024-04-30T05:31:42.150Z - info: Using extension scripts@4.1.0
+2024-04-30T05:31:42.152Z - info: Using extension static-pdf@4.1.0
+2024-04-30T05:31:42.152Z - info: Using extension studio@4.1.0
+2024-04-30T05:31:42.222Z - info: Using extension xlsx@4.1.0
+2024-04-30T05:31:42.225Z - info: Using extension public-templates@4.0.0
+2024-04-30T05:31:42.226Z - info: Using extension sample-template@4.0.0
+2024-04-30T05:31:42.228Z - info: Using extension studio-theme-dark@4.0.0
+2024-04-30T05:31:42.230Z - info: Using general timeout for rendering (reportTimeout: 60000)
+2024-04-30T05:31:42.230Z - info: Using fs provider for template store.
+2024-04-30T05:31:42.236Z - info: fs store is persisting using fs for C:\Users\Saksorn\Documents\GitHub\StoreCS369\jsreportapp\data
+2024-04-30T05:31:42.242Z - info: fs store is loading data
+2024-04-30T05:31:42.265Z - info: fs store is initialized successfully
+2024-04-30T05:31:42.276Z - info: Creating default express app.
+2024-04-30T05:31:42.294Z - info: jsreport server successfully started on http port: 5488
+2024-04-30T05:31:42.296Z - info: Verifying license key free
+2024-04-30T05:31:42.297Z - info: Using free license
+2024-04-30T05:31:42.300Z - info: Initializing worker threads
+2024-04-30T05:31:43.259Z - info: 2 worker threads initialized in 959ms
+2024-04-30T05:31:43.260Z - info: Starting temp files cleanup with 180000ms threshold
+2024-04-30T05:31:43.261Z - info: reporter initialized
+2024-04-30T08:22:39.594Z - info: Initializing jsreport (version: 4.3.1, configuration file: jsreport.config.json, nodejs: 20.11.1)
+2024-04-30T08:22:39.598Z - info: Searching for available extensions in C:\Users\Saksorn\Documents\GitHub\StoreCS369\jsreportapp\
+2024-04-30T08:22:39.604Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\Saksorn\Documents\GitHub\StoreCS369\jsreportapp\
+2024-04-30T08:22:39.620Z - info: Found 35 extension(s)
+2024-04-30T08:22:39.708Z - info: Using extension base@4.0.0
+2024-04-30T08:22:39.713Z - info: Using extension child-templates@4.1.0
+2024-04-30T08:22:39.717Z - info: Using extension cli@4.0.4
+2024-04-30T08:22:39.720Z - info: Using extension components@4.0.0
+2024-04-30T08:22:39.723Z - info: Using extension data@4.1.0
+2024-04-30T08:22:39.724Z - info: Using extension express@4.1.1
+2024-04-30T08:22:40.066Z - info: Using extension freeze@4.0.0
+2024-04-30T08:22:40.068Z - info: Using extension fs-store@4.0.3
+2024-04-30T08:22:40.201Z - info: Using extension handlebars@4.0.1
+2024-04-30T08:22:40.203Z - info: Using extension import-export@4.0.3
+2024-04-30T08:22:40.213Z - info: Using extension jsrender@4.0.0
+2024-04-30T08:22:40.215Z - info: Using extension licensing@4.0.2
+2024-04-30T08:22:40.240Z - info: Using extension localization@4.0.1
+2024-04-30T08:22:40.241Z - info: Using extension npm@4.0.0
+2024-04-30T08:22:40.245Z - info: Using extension pdf-utils@4.1.1
+2024-04-30T08:22:40.247Z - info: Using extension reports@4.1.1
+2024-04-30T08:22:40.249Z - info: Using extension tags@4.0.1
+2024-04-30T08:22:40.251Z - info: Using extension text@4.0.0
+2024-04-30T08:22:40.252Z - info: Using extension version-control@4.0.0
+2024-04-30T08:22:40.260Z - info: Using extension assets@4.1.0
+2024-04-30T08:22:40.270Z - info: Using extension authorization@4.0.0
+2024-04-30T08:22:40.274Z - info: Using extension browser-client@4.1.0
+2024-04-30T08:22:40.279Z - info: Using extension chrome-pdf@4.1.0
+2024-04-30T08:22:40.283Z - info: Using extension docx@4.2.1
+2024-04-30T08:22:40.286Z - info: Using extension html-to-xlsx@4.1.1
+2024-04-30T08:22:40.811Z - info: html-to-xlsx detected chrome as available html engine
+2024-04-30T08:22:40.812Z - info: Using extension pptx@4.2.0
+2024-04-30T08:22:40.814Z - info: Using extension scheduling@4.0.0
+2024-04-30T08:22:40.839Z - info: Using extension scripts@4.1.0
+2024-04-30T08:22:40.841Z - info: Using extension static-pdf@4.1.0
+2024-04-30T08:22:40.842Z - info: Using extension studio@4.1.0
+2024-04-30T08:22:40.911Z - info: Using extension xlsx@4.1.0
+2024-04-30T08:22:40.913Z - info: Using extension public-templates@4.0.0
+2024-04-30T08:22:40.915Z - info: Using extension sample-template@4.0.0
+2024-04-30T08:22:40.917Z - info: Using extension studio-theme-dark@4.0.0
+2024-04-30T08:22:40.919Z - info: Using general timeout for rendering (reportTimeout: 60000)
+2024-04-30T08:22:40.919Z - info: Using fs provider for template store.
+2024-04-30T08:22:40.923Z - info: fs store is persisting using fs for C:\Users\Saksorn\Documents\GitHub\StoreCS369\jsreportapp\data
+2024-04-30T08:22:40.928Z - info: fs store is loading data
+2024-04-30T08:22:40.950Z - info: fs store is initialized successfully
+2024-04-30T08:22:40.960Z - info: Creating default express app.
+2024-04-30T08:22:40.978Z - info: jsreport server successfully started on http port: 5488
+2024-04-30T08:22:40.979Z - info: Verifying license key free
+2024-04-30T08:22:40.980Z - info: Using free license
+2024-04-30T08:22:40.983Z - info: Initializing worker threads
+2024-04-30T08:22:42.033Z - info: 2 worker threads initialized in 1050ms
+2024-04-30T08:22:42.033Z - info: Starting temp files cleanup with 180000ms threshold
+2024-04-30T08:22:42.034Z - info: reporter initialized

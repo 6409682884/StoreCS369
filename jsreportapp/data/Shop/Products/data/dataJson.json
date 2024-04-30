@@ -1,0 +1,19 @@
+{
+    "data": [
+        [
+            {
+                "ProductID": 1,
+                "ProductName": "cookie",
+                "Picture": "test.png",
+                "Price": "100"
+            },
+            {
+                "ProductID": 2,
+                "ProductName": "Milk",
+                "Picture": "test2.png",
+                "Price": "60"
+            }
+        ]
+    ],
+    "message": "get data success"
+}

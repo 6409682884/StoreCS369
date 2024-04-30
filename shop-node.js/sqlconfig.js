@@ -30,10 +30,10 @@ sql.connect(config)
     });*/
 
     const sqlConfig = {
-        server: 'LAPTOP-FLA3D2A9\\SQLEXPRESS',
+        server: 'LEGION5PROOFSAK\\SQLEXPRESS',
         user: 'sa',
-        password: 'P@ssw0rd',
-        database: 'Northwind',
+        password: 'pp1234',
+        database: 'Store',
         pool: {
           max: 10,
           min: 0,
