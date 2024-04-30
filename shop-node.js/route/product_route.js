@@ -8,6 +8,11 @@ router.use((req, res, next) => {
     next();
 });
 
+//http://localhost:8080/api/login
+router.route('/login').get((req, res) => {
+
+});
+
 //http://localhost:8080/api/product
 router.route('/product').get((req, res) => {
     Db.getProduct().then((data) => {    // เรียกใช้ function getProduct() และ return data กลับมา      
@@ -33,7 +38,7 @@ router.route('/product/:id').get((req, res) => {    // ส่ง parameter id
 //http://localhost:8080/api/product
 router.route('/product').post((req, res) => {
     let product = { ProductName: req.body.ProductName, Picture: req.body.Picture, Price: req.body.Price } //ส่ง req.body เป็นข้อมูล json เข้าไปยังตัวแปร product
-    console.log(product)
+    // console.log(product)
     Db.postProduct(product).then((data) => {    // เรียกใช้ function postProduct() สง product และ return data กลับมา 
         if (data.code == 'success') //return data.codde กลับมาเป็น success
         {

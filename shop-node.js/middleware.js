@@ -5,7 +5,9 @@ const myrouter = require('./route/myroute')
 const app = express();
 const productroute = require('./route/product_route')
 const reportRouter = require('./route/report')
+const path = require('path');
 const multer = require("multer")
+const fs = require('fs');
 
 app.use(bodyParser.urlencoded({ extended: true })); // ใช้งาน bodyParser แบบ application/x-www-form-urlencoded  
 /*ใช้ middleware ที่ชื่อว่า body-parser เพื่อทำการแปลงข้อมูลที่ส่งมากับคำขอ (request) จากรูปแบบของ URL-encoded data 
@@ -22,7 +24,8 @@ app.use('/report', reportRouter);
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, '../uploads')
+        const uploadPath = path.resolve(__dirname, 'uploads');
+        cb(null, uploadPath)
     },
     filename: function (req, file, cb) {
         cb(null, Date.now() + "_" + file.originalname)
@@ -34,6 +37,24 @@ app.post('/upload', upload.single('file'), function (req, res) {
     const file = req.file;
     res.status(200).json(file.filename)
 })
+
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+app.delete('/delete/:filename', function(req, res) {
+    const filename = req.params.filename;
+    const filePath = path.join(__dirname, 'uploads', filename);
+    
+    // Delete the file from the uploads directory
+    fs.unlink(filePath, (err) => {
+        if (err) {
+            console.error('Error deleting file:', err);
+            res.status(500).send('Error deleting file');
+        } else {
+            console.log('File deleted successfully:', filename);
+            res.status(200).send('File deleted successfully');
+        }
+    });
+});
 
 app.listen(8080, () => {
     console.log('Server running at http://localhost:8080')

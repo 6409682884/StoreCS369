@@ -9,10 +9,14 @@ import React, { useMemo } from 'react';
 function App() {
   const [data, setData] = useState(null);
   const [datafilter, setDataFilter] = useState(null);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
+  const [pending, setPending] = useState(true);
   const [error, setError] = useState(null);
   const [file, setFile] = useState(null);
   const [info, setInfo] = useState(null);
+  const [statusAuth, setStatusAuth] = useState(false);
+  const [showFullImage, setShowFullImage] = useState(false);
+
   // Get Data From API
   const fetchDataForPosts = async () => {
     try {
@@ -30,7 +34,7 @@ function App() {
       setError(err.message);
       setData(null);
     } finally {
-      setLoading(false);
+      setPending(false);
     }
   };
 
@@ -38,7 +42,6 @@ function App() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       fetchDataForPosts();
-      setPending(false);
     }, 3000);
     return () => clearTimeout(timeout);
   }, [info]);
@@ -51,7 +54,7 @@ function App() {
       },
       {
         name: 'ProductName',
-        cell: row => <button onClick={() => handleClickInfo(row.ProductID)}>{row.ProductName}</button>
+        cell: row => <button className='name' onClick={() => handleClickInfo(row.ProductID)}>{row.ProductName}</button>
 
       },
       {
@@ -60,7 +63,7 @@ function App() {
       },
       {
         name: 'Picture',
-        cell: row => <img src={row.Picture} alt="Product Image" />
+        cell: row => <img src={"http://localhost:8080/uploads/" + row.Picture} alt="Product Image" width="150" height="150" className='multi' />
       },
       {
         name: 'Detail',
@@ -87,7 +90,7 @@ function App() {
       },
     },
   };
-  const [pending, setPending] = useState(true);
+
 
   const datas = []
 
@@ -135,6 +138,15 @@ function App() {
   function handleClickCloseInfo(event) {
     setStatusInfo(false)
   }
+
+  const handleClickImage = () => {
+    setShowFullImage(true);
+  };
+
+  const handleCloseFullImage = () => {
+    setShowFullImage(false);
+  };
+
   const [formValue, setFormValue] = useState({ ProductName: '', Price: '' })
   const handlePostProduct = (e) => {
     const { name, value } = e.target;
@@ -161,12 +173,41 @@ function App() {
       console.log(error);
     }
   };
+
+  const Delete = async (ProductID) => {
+    fetch(`http://localhost:8080/api/product/${ProductID}`, {
+      method: "GET",
+      headers: { 'content-type': 'application/json' },
+    })
+      .then(res => {
+        if (res.ok) {
+          return res.json(); // Parse the response body as JSON
+        } else {
+          throw new Error(`Failed to DELETE ProductID ${ProductID}`);
+        }
+      })
+      .then(Product => {
+        console.log(Product)
+        const response = fetch(`http://localhost:8080/delete/${Product.data.Picture}`, {
+          method: "DELETE"
+        });
+        if (!response.ok) {
+          throw new Error("Failed to Delete file");
+        }
+        console.log(`DELETE ProductID ${ProductID} successfully`);
+        // console.log(Product.data.ProductName)
+      })
+      .catch(error => {
+        console.error(`Error fetching ProductID ${ProductID}:`, error);
+      });
+  }
+
   // กด submit post data
   const handleSubmit = async (e) => {
     e.preventDefault();
+    handleClickCloseForm();
     const img = await upload();
-    const allInputValue = { ProductName: formValue.ProductName, Picture: img ? file.name : "", Price: formValue.Price }
-
+    const allInputValue = { ProductName: formValue.ProductName, Picture: img ? img : "", Price: formValue.Price }
     let res = await fetch("http://localhost:8080/api/product", {
       method: "POST",
       headers: { 'content-type': 'application/json' },
@@ -209,6 +250,7 @@ function App() {
         console.log(selectedRows)
         const ProductIDs = selectedRows.map(item => item.ProductID);
         ProductIDs.forEach(ProductID => {
+          Delete(ProductID);
           fetch(`http://localhost:8080/api/product/${ProductID}`, {
             method: "DELETE",
             headers: { 'content-type': 'application/json' },
@@ -245,8 +287,8 @@ function App() {
         {statusAdd == false && statusInfo == false && (
           <div>
 
-            <a href='http://localhost:8080/report/products' style={{ margin: '0 0.5rem 0 0.5rem' }}><button>REPORT</button></a>
-            <button onClick={handleClickAdd}>+</button>
+            <a href='http://localhost:8080/api/login' style={{ margin: '0 0.5rem 0 0.5rem' }}><button>Login</button></a>
+            {statusAuth == true && <button onClick={handleClickAdd}>+</button>}
             <input type='text' placeholder='Search Product Name' onChange={handleFilter} style={{ margin: '0 0.5rem 0 0.5rem' }} />
           </div>)}
 
@@ -315,11 +357,21 @@ function App() {
 
           </form>
         </div>}
-        {statusInfo == true && info && (
+      {statusInfo == true && info && (
         <div>
-           <p>
-           {info.ProductName}
-              </p>
+          <div className='box'>
+            {showFullImage && (
+              <div className="full-image-container" onClick={handleCloseFullImage}>
+                <button className="close-button" onClick={handleCloseFullImage}>X</button>
+                <img className="full-image" src={'http://localhost:8080/uploads/' + info.Picture} alt="Full Size Image" />
+              </div>
+            )}
+
+            <img className='single' src={'http://localhost:8080/uploads/' + info.Picture} alt="Thumbnail Image" onClick={handleClickImage} />
+            <p>{info.ProductID}</p>
+            <p>{info.ProductName}</p>
+            <p>{info.Price}</p>
+          </div>
         </div>
       )}
 
