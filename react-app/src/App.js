@@ -325,7 +325,7 @@ function App() {
 
         {statusAdd == false && statusInfo == false && (
           <div>
-            
+
             <form id='loginForm' onSubmit={handleLogin} method="POST">
               <label>Username: </label>
               <input name="Username" type="text" placeholder="Username" value={loginValue.Username} onChange={handleLoginInput} />
@@ -396,7 +396,7 @@ function App() {
               />
             </div>
             <div>
-              <input
+              <textarea
                 type="text"
                 placeholder="Description"
                 name="Description"
@@ -445,12 +445,23 @@ function App() {
             )}
 
             <img className='single' src={'http://localhost:8080/uploads/' + info.Picture} alt="Thumbnail Image" onClick={handleClickImage} />
-            <p>{info.ProductID}</p>
-            <p>{info.ProductName}</p>
-            <p>{info.Price}</p>
-            <p>{info.description}</p>
-            <p>{info.size}</p>
-            <p>{info.material}</p>
+            <div id='flex-contianer'>
+              <div id='infoleft'>
+                <p id='id'>ID: {info.ProductID}</p>
+                <p id='productname'>{info.ProductName}</p>
+                <p id='price'>{info.Price} ฿</p>
+              </div>
+              <div id='infocenter'>
+                <label id='head'>รายละเอียดสินค้า</label>
+                <p id='description'>{info.description}</p>
+              </div>
+              <div id='inforight'>
+                <label id='headsize'>ขนาดสินค้า</label>
+                <p id='size'>{info.size}</p>
+                <label id='headmaterial'>วัสดุ/วัตถุดิบสินค้า</label>
+                <p id='material'>{info.material}</p>
+              </div>
+            </div>
           </div>
         </div>
       ) : statusInfo == true && (

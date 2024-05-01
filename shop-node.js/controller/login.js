@@ -2,7 +2,7 @@ const config = require('../sqlconfig');  //ดึงข้อมูล connectio
 const sql = require('mssql');   // ใช้ module sql
 
 async function authen(user) {
-    console.log(user.Username + " " + user.Password)
+    // console.log(user.Username + " " + user.Password)
     try {// ถ้าเกิด error จะเข้า catch
         // Query
         let data = await sql.connect(config) // sql connect to database
