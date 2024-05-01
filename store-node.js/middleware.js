@@ -58,6 +58,8 @@ app.delete('/delete/:filename', function(req, res) {
     });
 });
 
+const localhost = "18.208.188.126"
+
 app.listen(8080, () => {
-    console.log('Server running at http://localhost:8080')
+    console.log('Server running at http://'+localhost+':8080')
 })
