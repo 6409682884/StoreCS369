@@ -29,21 +29,32 @@ sql.connect(config)
         console.error('Error:', err);
     });*/
 
-    const sqlConfig = {
-        server: 'LEGION5PROOFSAK\\SQLEXPRESS',
-        user: 'sa',
-        password: 'pp1234',
-        database: 'Store',
-        pool: {
-          max: 10,
-          min: 0,
-          idleTimeoutMillis: 30000
-        },
-        options: {
-          encrypt: false, // for azure
-          trustServerCertificate: false // change to true for local dev / self-signed certs
-        }
-      }   
-      module.exports=sqlConfig
-      //เก็บโค้ดนี้ไว้ใช้งานจริง แต่ไม่เห็นผลลัพธ์การ connect db   run สำเร็จจะนิ่งๆ  ไม่สำเร็จจะแสดง error   
-      
+const sqlConfig = {
+  server: 'storecs369.ch4wskk4qblv.us-east-1.rds.amazonaws.com',
+  user: 'admin',
+  password: 'pp0983859907',
+  database: 'Store',
+  pool: {
+    max: 10,
+    min: 0,
+    idleTimeoutMillis: 30000
+  },
+  options: {
+    encrypt: false, // for azure
+    trustServerCertificate: false // change to true for local dev / self-signed certs
+  }
+}
+
+async function connect() {
+  try {
+    await sql.connect(sqlConfig);
+    console.log('Connected to SQL Server');
+  } catch (error) {
+    console.error('Error connecting to SQL Server:', error);
+  }
+}
+
+connect();
+
+module.exports = sqlConfig
+//เก็บโค้ดนี้ไว้ใช้งานจริง แต่ไม่เห็นผลลัพธ์การ connect db   run สำเร็จจะนิ่งๆ  ไม่สำเร็จจะแสดง error   

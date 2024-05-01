@@ -1,10 +1,9 @@
 // โค้ดต่อไปนี้เป็น React ดังนั้นจะไม่ได้อธิบายรายละเอียดของโค้ดมาก
 
-import logo from './logo.svg';
 import './App.css';
 import DataTable from 'react-data-table-component';
-import { useEffect, useState, useCallback } from 'react';
-import React, { useMemo } from 'react';
+import { useEffect, useState } from 'react';
+import React from 'react';
 
 function App() {
   const [data, setData] = useState(null);
@@ -17,7 +16,7 @@ function App() {
   const [showFullImage, setShowFullImage] = useState(false);
   const [statusAuth, setStatusAuth] = useState(false);
   const datas = []
-  const localhost = "18.208.188.126"
+  const localhost = "localhost"
   // Get Data From API
   const fetchDataForPosts = async () => {
     try {
@@ -324,7 +323,7 @@ function App() {
     <div className='container'>
       <div style={{ alignSelf: 'end', display: 'flex', justifyContent: 'space-evenly', gap: '0.5rem' }}>
 
-        {statusAdd == false && statusInfo == false && (
+        {statusAdd === false && statusInfo === false && (
           <div>
 
             <form id='loginForm' onSubmit={handleLogin} method="POST">
@@ -435,7 +434,7 @@ function App() {
           </form>
         </div>}
 
-      {statusInfo == true && info ? (
+      {statusInfo === true && info ? (
         <div>
           <div className='box'>
             {showFullImage && (
@@ -465,7 +464,7 @@ function App() {
             </div>
           </div>
         </div>
-      ) : statusInfo == true && (
+      ) : statusInfo === true && (
         <h3>Loading...</h3>
       )}
 

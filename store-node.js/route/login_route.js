@@ -3,15 +3,6 @@ const router = express.Router();     //นำเข้า Router Express ซึ�
 const path = require('path');        //นำเข้าโมดูล path เพื่อใช้ในการจัดการเส้นทางไฟล์.
 const Db = require('../controller/login')
 
-const loginPage = path.join(__dirname,`../page/login.html`);  
-
-router.get("/login",(req,res)=>{       
-    res.status(200);
-    res.status(200);
-    res.type('text/html');
-    res.sendFile(loginPage);
- })
-
  router.post("/login",(req,res)=>{    
     // console.log(req.body)
     let auth = { Username: req.body.Username, Password: req.body.Password } 

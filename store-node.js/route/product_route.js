@@ -8,11 +8,6 @@ router.use((req, res, next) => {
     next();
 });
 
-//http://localhost:8080/api/login
-router.route('/login').get((req, res) => {
-
-});
-
 //http://localhost:8080/api/product
 router.route('/product').get((req, res) => {
     Db.getProduct().then((data) => {    // เรียกใช้ function getProduct() และ return data กลับมา      
