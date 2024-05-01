@@ -102,3 +102,17 @@ div.box{
   cursor: pointer;
   z-index: 1000; /* Ensure it's above the full-size image */
 }
+
+form#loginForm {
+  padding-bottom: 3vw;
+}
+
+#loginForm input {
+  margin-right: 0.5vw;
+}
+
+#loginForm label {
+  position: absolute;
+  top: 0;
+  margin-top: 3.5vw;
+}

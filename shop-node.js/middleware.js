@@ -1,10 +1,10 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const myrouter = require('./route/myroute')
+const login = require('./route/login_route')
 const app = express();
 const productroute = require('./route/product_route')
-const reportRouter = require('./route/report')
+// const reportRouter = require('./route/report')
 const path = require('path');
 const multer = require("multer")
 const fs = require('fs');
@@ -18,9 +18,9 @@ app.use(bodyParser.urlencoded({ extended: true })); // ใช้งาน bodyPa
 URL-encoded data ที่ซับซ้อน (nested object) ได้โดยอัตโนมัติ ซึ่งจะช่วยให้คุณสามารถใช้งานข้อมูลในรูปแบบที่เป็นโครงสร้างได้ง่ายขึ้น*/
 app.use(bodyParser.json()); // ใช้งาน bodyParser แบบ json
 app.use(cors());
-app.use(myrouter);
+app.use('/Authen',login);
 app.use('/api', productroute); // ระบุ route ชื่อ api เพื่่อป้องกันความสับสน ตอนเรียกหน้า page ซึ่งได้สร้าง link shipper_route.js ไว้แล้วที่
-app.use('/report', reportRouter);
+// app.use('/report', reportRouter);
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -28,14 +28,16 @@ const storage = multer.diskStorage({
         cb(null, uploadPath)
     },
     filename: function (req, file, cb) {
-        cb(null, Date.now() + "_" + file.originalname)
+        const sanitizedFilename = file.originalname.replace(/[^\x00-\x7F]/g, 'a');
+        cb(null, Date.now() + "_" + sanitizedFilename)
     }
 })
+
 const upload = multer({ storage })
 
 app.post('/upload', upload.single('file'), function (req, res) {
-    const file = req.file;
-    res.status(200).json(file.filename)
+    const filename = req.file.filename;
+    res.status(200).json(filename)
 })
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));

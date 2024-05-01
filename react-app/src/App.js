@@ -14,9 +14,9 @@ function App() {
   const [error, setError] = useState(null);
   const [file, setFile] = useState(null);
   const [info, setInfo] = useState(null);
-  const [statusAuth, setStatusAuth] = useState(false);
   const [showFullImage, setShowFullImage] = useState(false);
-
+  const [statusAuth, setStatusAuth] = useState(false);
+  const datas = []
   // Get Data From API
   const fetchDataForPosts = async () => {
     try {
@@ -67,7 +67,7 @@ function App() {
       },
       {
         name: 'Detail',
-        selector: row => <a href='row.ProductID'>Detail</a>
+        selector: row => <button onClick={() => handleClickInfo(row.ProductID)}>Detail</button>
       },
     ];
 
@@ -92,8 +92,6 @@ function App() {
   };
 
 
-  const datas = []
-
   // set state เปิด-ปิด form
   const [statusAdd, setStatusAdd] = useState(false);
   const [statusInfo, setStatusInfo] = useState(false);
@@ -112,6 +110,7 @@ function App() {
 
 
   const handleClickInfo = (ProductID) => {
+    setStatusInfo(true);
     fetch(`http://localhost:8080/api/product/${ProductID}`, {
       method: "GET",
       headers: { 'content-type': 'application/json' },
@@ -126,7 +125,7 @@ function App() {
       .then(Product => {
         // console.log(Product)
         setInfo(Product.data);
-        setStatusInfo(true); // Set statusInfo after the fetch request completes
+        // Set statusInfo after the fetch request completes
         console.log(`GET ProductID ${ProductID} successfully`);
         // console.log(Product.data.ProductName)
       })
@@ -148,9 +147,16 @@ function App() {
   };
 
   const [formValue, setFormValue] = useState({ ProductName: '', Price: '' })
+  const [loginValue, setLoginValue] = useState({ Username: '', Password: '' })
+  const [loginLoading, setLoginLoading] = useState(false)
   const handlePostProduct = (e) => {
     const { name, value } = e.target;
     setFormValue({ ...formValue, [name]: value });
+  }
+
+  const handleLoginInput = (e) => {
+    const { name, value } = e.target;
+    setLoginValue({ ...loginValue, [name]: value });
   }
 
   const upload = async () => {
@@ -202,12 +208,45 @@ function App() {
       });
   }
 
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setLoginLoading(true)
+    const allInputValue = {
+      Username: loginValue.Username,
+      Password: loginValue.Password
+    };
+
+    let res = await fetch("http://localhost:8080/Authen/login", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(allInputValue)
+    });
+
+    if (res.status === 200) {
+      setStatusAuth(true)
+      setLoginLoading(false)
+      fetchDataForPosts();
+      return (
+        alert('Login Successful')
+      );
+    } else {
+      setStatusAuth(false)
+      setLoginLoading(false)
+      fetchDataForPosts();
+      return (
+        alert('Login Fail')
+      );
+    }
+  }
+
   // กด submit post data
   const handleSubmit = async (e) => {
     e.preventDefault();
     handleClickCloseForm();
     const img = await upload();
-    const allInputValue = { ProductName: formValue.ProductName, Picture: img ? img : "", Price: formValue.Price }
+    const allInputValue = { ProductName: formValue.ProductName, Picture: img ? img : "", Price: formValue.Price, Description: formValue.Description, Size: formValue.Size, Material: formValue.Material }
     let res = await fetch("http://localhost:8080/api/product", {
       method: "POST",
       headers: { 'content-type': 'application/json' },
@@ -286,8 +325,15 @@ function App() {
 
         {statusAdd == false && statusInfo == false && (
           <div>
-
-            <a href='http://localhost:8080/api/login' style={{ margin: '0 0.5rem 0 0.5rem' }}><button>Login</button></a>
+            
+            <form id='loginForm' onSubmit={handleLogin} method="POST">
+              <label>Username: </label>
+              <input name="Username" type="text" placeholder="Username" value={loginValue.Username} onChange={handleLoginInput} />
+              <label>Password: </label>
+              <input name="Password" type="password" placeholder="Password" value={loginValue.Password} onChange={handleLoginInput} />
+              <button type='submit'>Login</button>
+              {loginLoading === true && (<span>Logging in...</span>)}
+            </form>
             {statusAuth == true && <button onClick={handleClickAdd}>+</button>}
             <input type='text' placeholder='Search Product Name' onChange={handleFilter} style={{ margin: '0 0.5rem 0 0.5rem' }} />
           </div>)}
@@ -350,6 +396,36 @@ function App() {
               />
             </div>
             <div>
+              <input
+                type="text"
+                placeholder="Description"
+                name="Description"
+                value={formValue.Description}
+                onChange={handlePostProduct}
+
+              />
+            </div>
+            <div>
+              <input
+                type="text"
+                placeholder="Size"
+                name="Size"
+                value={formValue.Size}
+                onChange={handlePostProduct}
+
+              />
+            </div>
+            <div>
+              <input
+                type="text"
+                placeholder="Material"
+                name="Material"
+                value={formValue.Material}
+                onChange={handlePostProduct}
+
+              />
+            </div>
+            <div>
               <button type="submit">
                 submit
               </button>
@@ -357,7 +433,8 @@ function App() {
 
           </form>
         </div>}
-      {statusInfo == true && info && (
+
+      {statusInfo == true && info ? (
         <div>
           <div className='box'>
             {showFullImage && (
@@ -371,8 +448,13 @@ function App() {
             <p>{info.ProductID}</p>
             <p>{info.ProductName}</p>
             <p>{info.Price}</p>
+            <p>{info.description}</p>
+            <p>{info.size}</p>
+            <p>{info.material}</p>
           </div>
         </div>
+      ) : statusInfo == true && (
+        <h3>Loading...</h3>
       )}
 
     </div>

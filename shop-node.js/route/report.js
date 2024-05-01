@@ -1,7 +1,7 @@
 const express = require('express');
 const route = express.Router();
 const Db = require('../controller/product');
-const router = require('./myroute');
+const router = require('./login');
 //เรียกใช้ package @jsreport/nodejs-client ที่ลิ้งค์กับ report server (erl, username, password)
 const client = require('@jsreport/nodejs-client')("http://localhost:5488","admin","mypassword")
 //middleware
