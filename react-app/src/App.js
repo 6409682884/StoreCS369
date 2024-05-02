@@ -20,7 +20,7 @@ function App() {
   // Get Data From API
   const fetchDataForPosts = async () => {
     try {
-      const response = await fetch(`http://`+localhost+`:8080/api/product`, {
+      const response = await fetch(`http://` + localhost + `:8080/api/product`, {
         method: "GET"
       });
       if (!response.ok) {
@@ -63,7 +63,7 @@ function App() {
       },
       {
         name: 'Picture',
-        cell: row => <img src={"http://"+localhost+":8080/uploads/" + row.Picture} alt="Product Image" width="150" height="150" className='multi' />
+        cell: row => <img src={"http://" + localhost + ":8080/uploads/" + row.Picture} alt="Product Image" width="150" height="150" className='multi' />
       },
       {
         name: 'Detail',
@@ -111,7 +111,7 @@ function App() {
 
   const handleClickInfo = (ProductID) => {
     setStatusInfo(true);
-    fetch(`http://`+localhost+`:8080/api/product/${ProductID}`, {
+    fetch(`http://` + localhost + `:8080/api/product/${ProductID}`, {
       method: "GET",
       headers: { 'content-type': 'application/json' },
     })
@@ -164,7 +164,7 @@ function App() {
       const formData = new FormData();
       formData.append("file", file);
 
-      const response = await fetch("http://"+localhost+":8080/upload", {
+      const response = await fetch("http://" + localhost + ":8080/upload", {
         method: "POST",
         body: formData
       });
@@ -181,7 +181,7 @@ function App() {
   };
 
   const Delete = async (ProductID) => {
-    fetch(`http://`+localhost+`:8080/api/product/${ProductID}`, {
+    fetch(`http://` + localhost + `:8080/api/product/${ProductID}`, {
       method: "GET",
       headers: { 'content-type': 'application/json' },
     })
@@ -194,7 +194,7 @@ function App() {
       })
       .then(Product => {
         console.log(Product)
-        const response = fetch(`http://`+localhost+`:8080/delete/${Product.data.Picture}`, {
+        const response = fetch(`http://` + localhost + `:8080/delete/${Product.data.Picture}`, {
           method: "DELETE"
         });
         if (!response.ok) {
@@ -216,7 +216,7 @@ function App() {
       Password: loginValue.Password
     };
 
-    let res = await fetch("http://"+localhost+":8080/Authen/login", {
+    let res = await fetch("http://" + localhost + ":8080/Authen/login", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
@@ -247,7 +247,7 @@ function App() {
     handleClickCloseForm();
     const img = await upload();
     const allInputValue = { ProductName: formValue.ProductName, Picture: img ? img : "", Price: formValue.Price, Description: formValue.Description, Size: formValue.Size, Material: formValue.Material }
-    let res = await fetch("http://"+localhost+":8080/api/product", {
+    let res = await fetch("http://" + localhost + ":8080/api/product", {
       method: "POST",
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(allInputValue)
@@ -290,7 +290,7 @@ function App() {
         const ProductIDs = selectedRows.map(item => item.ProductID);
         ProductIDs.forEach(ProductID => {
           Delete(ProductID);
-          fetch(`http://`+localhost+`:8080/api/product/${ProductID}`, {
+          fetch(`http://` + localhost + `:8080/api/product/${ProductID}`, {
             method: "DELETE",
             headers: { 'content-type': 'application/json' },
           })
@@ -326,15 +326,17 @@ function App() {
         {statusAdd === false && statusInfo === false && (
           <div>
 
-            <form id='loginForm' onSubmit={handleLogin} method="POST">
-              <label>Username: </label>
-              <input name="Username" type="text" placeholder="Username" value={loginValue.Username} onChange={handleLoginInput} />
-              <label>Password: </label>
-              <input name="Password" type="password" placeholder="Password" value={loginValue.Password} onChange={handleLoginInput} />
-              <button type='submit'>Login</button>
-              {loginLoading === true && (<span>Logging in...</span>)}
-            </form>
-            {statusAuth == true && <button onClick={handleClickAdd}>+</button>}
+
+            {statusAuth == true ? <><button onClick={handleClickAdd}>+</button> <button onClick={()=>{setStatusAuth(false)}}>Logout</button></> :
+              <form id='loginForm' onSubmit={handleLogin} method="POST">
+                <label>Username: </label>
+                <input name="Username" type="text" placeholder="Username" value={loginValue.Username} onChange={handleLoginInput} />
+                <label>Password: </label>
+                <input name="Password" type="password" placeholder="Password" value={loginValue.Password} onChange={handleLoginInput} />
+                <button type='submit'>Login</button>
+                {loginLoading === true && (<span>Logging in...</span>)}
+              </form>
+            }
             <input type='text' placeholder='Search Product Name' onChange={handleFilter} style={{ margin: '0 0.5rem 0 0.5rem' }} />
           </div>)}
 
@@ -440,11 +442,11 @@ function App() {
             {showFullImage && (
               <div className="full-image-container" onClick={handleCloseFullImage}>
                 <button className="close-button" onClick={handleCloseFullImage}>X</button>
-                <img className="full-image" src={'http://'+localhost+':8080/uploads/' + info.Picture} alt="Full Size Image" />
+                <img className="full-image" src={'http://' + localhost + ':8080/uploads/' + info.Picture} alt="Full Size Image" />
               </div>
             )}
 
-            <img className='single' src={'http://'+localhost+':8080/uploads/' + info.Picture} alt="Thumbnail Image" onClick={handleClickImage} />
+            <img className='single' src={'http://' + localhost + ':8080/uploads/' + info.Picture} alt="Thumbnail Image" onClick={handleClickImage} />
             <div id='flex-contianer'>
               <div id='infoleft'>
                 <p id='id'>ID: {info.ProductID}</p>
