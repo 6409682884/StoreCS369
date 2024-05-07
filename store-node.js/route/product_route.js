@@ -4,7 +4,7 @@ const Db = require('../controller/product') //import shipper ในตัวแ�
 
 // middleware
 router.use((req, res, next) => {
-    console.log('middleware');
+    // console.log('middleware');
     next();
 });
 
@@ -32,7 +32,7 @@ router.route('/product/:id').get((req, res) => {    // ส่ง parameter id
 })
 //http://localhost:8080/api/product
 router.route('/product').post((req, res) => {
-    let product = { ProductName: req.body.ProductName, Picture: req.body.Picture, Price: req.body.Price , Description: req.body.Description, Size: req.body.Size, Material: req.body.Material} //ส่ง req.body เป็นข้อมูล json เข้าไปยังตัวแปร product
+    let product = {...req.body} //ส่ง req.body เป็นข้อมูล json เข้าไปยังตัวแปร product
     // console.log(product)
     Db.postProduct(product).then((data) => {    // เรียกใช้ function postProduct() สง product และ return data กลับมา 
         if (data.code == 'success') //return data.codde กลับมาเป็น success
@@ -51,27 +51,7 @@ router.route('/product').post((req, res) => {
     });
 })
 
-//http://localhost:8080/api/product
-router.route('/product/:id').put((req, res) => {
-    let ship = { ...req.body } //ส่ง req.body เป็นข้อมูล json เข้าไปยังตัวแปร product
-    Db.putShip(ship, req.params.id).then((data) => {    // เรียกใช้ function putProduct() สง product และ return data กลับมา 
-        if (data.code == 'success') //return data.codde กลับมาเป็น success
-        {
-            res.status(200).json({ data: data, message: 'update data success' });
-        }
-        else //return data เป็น error
-        {
-            res.status(400).send({ error: data, message: 'Bad Request' }) //จะส่ง http code 400 และแสดง error, message ในรูปแบบ json
-        }
-        // console.log(data);      
-    }).catch(err => {
-        res.status(500).send({ error: err, message: 'Server Error ' }) // ถ้า error จะส่ง http code 500
-        // และแสดง err, message ในรูปแบบ json
-        console.log(err);
-    });
-})
-
-//http://localhost:8080/api/product
+//http://localhost:8080/api/product/:id
 router.route('/product/:id').delete((req, res) => {
     Db.deleteProduct(req.params.id).then((data) => {    // เรียกใช้ function putProduct() สง product และ return data กลับมา 
         if (data.code == 'success') //return data.codde กลับมาเป็น success

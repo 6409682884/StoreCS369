@@ -16,11 +16,11 @@ function App() {
   const [showFullImage, setShowFullImage] = useState(false);
   const [statusAuth, setStatusAuth] = useState(false);
   const datas = []
-  const localhost = "localhost"
+  const ipAddress = "localhost" //แก้ตรงนี้ทุกครั้งที่ ip localhost เปลี่ยนอย่างเช่นปิด-เปิด aws ec2 ใหม่
   // Get Data From API
   const fetchDataForPosts = async () => {
     try {
-      const response = await fetch(`http://` + localhost + `:8080/api/product`, {
+      const response = await fetch(`http://` + ipAddress + `:8080/api/product`, {
         method: "GET"
       });
       if (!response.ok) {
@@ -44,7 +44,7 @@ function App() {
       fetchDataForPosts();
     }, 3000);
     return () => clearTimeout(timeout);
-  }, [info]);
+  }, []);
 
   const HeaderColumns =
     [
@@ -55,7 +55,6 @@ function App() {
       {
         name: 'ProductName',
         cell: row => <button className='name' onClick={() => handleClickInfo(row.ProductID)}>{row.ProductName}</button>
-
       },
       {
         name: 'Price',
@@ -63,7 +62,7 @@ function App() {
       },
       {
         name: 'Picture',
-        cell: row => <img src={"http://" + localhost + ":8080/uploads/" + row.Picture} alt="Product Image" width="150" height="150" className='multi' />
+        cell: row => <img src={"http://" + ipAddress + ":8080/uploads/" + row.Picture} alt="Product Image" width="150" height="150" className='multi' />
       },
       {
         name: 'Detail',
@@ -91,7 +90,6 @@ function App() {
     },
   };
 
-
   // set state เปิด-ปิด form
   const [statusAdd, setStatusAdd] = useState(false);
   const [statusInfo, setStatusInfo] = useState(false);
@@ -101,17 +99,21 @@ function App() {
     })
     setData(newData)
   }
+
   function handleClickAdd(event) {
     setStatusAdd(true)
   }
+  
   function handleClickCloseForm(event) {
     setStatusAdd(false)
   }
 
-
   const handleClickInfo = (ProductID) => {
     setStatusInfo(true);
-    fetch(`http://` + localhost + `:8080/api/product/${ProductID}`, {
+    window.scrollTo({
+      top: 0
+    });
+    fetch(`http://` + ipAddress + `:8080/api/product/${ProductID}`, {
       method: "GET",
       headers: { 'content-type': 'application/json' },
     })
@@ -163,16 +165,13 @@ function App() {
     try {
       const formData = new FormData();
       formData.append("file", file);
-
-      const response = await fetch("http://" + localhost + ":8080/upload", {
+      const response = await fetch("http://" + ipAddress + ":8080/upload", {
         method: "POST",
         body: formData
       });
-
       if (!response.ok) {
         throw new Error("Failed to upload file");
       }
-
       const data = await response.json();
       return data;
     } catch (error) {
@@ -181,7 +180,7 @@ function App() {
   };
 
   const Delete = async (ProductID) => {
-    fetch(`http://` + localhost + `:8080/api/product/${ProductID}`, {
+    fetch(`http://` + ipAddress + `:8080/api/product/${ProductID}`, {
       method: "GET",
       headers: { 'content-type': 'application/json' },
     })
@@ -194,7 +193,7 @@ function App() {
       })
       .then(Product => {
         console.log(Product)
-        const response = fetch(`http://` + localhost + `:8080/delete/${Product.data.Picture}`, {
+        const response = fetch(`http://` + ipAddress + `:8080/delete/${Product.data.Picture}`, {
           method: "DELETE"
         });
         if (!response.ok) {
@@ -216,7 +215,7 @@ function App() {
       Password: loginValue.Password
     };
 
-    let res = await fetch("http://" + localhost + ":8080/Authen/login", {
+    let res = await fetch("http://" + ipAddress + ":8080/Authen/login", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
@@ -247,7 +246,7 @@ function App() {
     handleClickCloseForm();
     const img = await upload();
     const allInputValue = { ProductName: formValue.ProductName, Picture: img ? img : "", Price: formValue.Price, Description: formValue.Description, Size: formValue.Size, Material: formValue.Material }
-    let res = await fetch("http://" + localhost + ":8080/api/product", {
+    let res = await fetch("http://" + ipAddress + ":8080/api/product", {
       method: "POST",
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(allInputValue)
@@ -259,14 +258,12 @@ function App() {
       fetchDataForPosts();
       return (
         alert('Yes')
-
       );
     } else {
       return (
         alert('No')
       );
     }
-
   }
 
   // handle Del From DataBase
@@ -280,17 +277,15 @@ function App() {
   }, []);
 
   const contextActions = React.useMemo(() => {
-
     //กด delete
     const handleDelete = (id) => {
-
       if (window.confirm(`Are you sure you want to delete:\r ${selectedRows.map(r => r.ProductName)}?`)) {
         setToggleCleared(!toggleCleared);
         console.log(selectedRows)
         const ProductIDs = selectedRows.map(item => item.ProductID);
         ProductIDs.forEach(ProductID => {
           Delete(ProductID);
-          fetch(`http://` + localhost + `:8080/api/product/${ProductID}`, {
+          fetch(`http://` + ipAddress + `:8080/api/product/${ProductID}`, {
             method: "DELETE",
             headers: { 'content-type': 'application/json' },
           })
@@ -307,13 +302,10 @@ function App() {
               console.error(`Error deleting ProductID ${ProductID}:`, error);
             });
         });
-
         // Optionally, you can show a confirmation message here after all requests are completed
         alert('Delete requests sent for selected rows');
       }
-
     };
-
     return (
       <button key="delete" onClick={handleDelete} style={{ backgroundColor: 'red' }}>Delete</button>
     );
@@ -322,12 +314,9 @@ function App() {
   return (
     <div className='container'>
       <div style={{ alignSelf: 'end', display: 'flex', justifyContent: 'space-evenly', gap: '0.5rem' }}>
-
         {statusAdd === false && statusInfo === false && (
           <div>
-
-
-            {statusAuth == true ? <><button onClick={handleClickAdd}>+</button> <button onClick={()=>{setStatusAuth(false)}}>Logout</button></> :
+            {statusAuth == true ? <><button onClick={handleClickAdd}>+</button> <button onClick={() => { setStatusAuth(false) }}>Logout</button></> :
               <form id='loginForm' onSubmit={handleLogin} method="POST">
                 <label>Username: </label>
                 <input name="Username" type="text" placeholder="Username" value={loginValue.Username} onChange={handleLoginInput} />
@@ -339,7 +328,6 @@ function App() {
             }
             <input type='text' placeholder='Search Product Name' onChange={handleFilter} style={{ margin: '0 0.5rem 0 0.5rem' }} />
           </div>)}
-
         {statusAdd == true && <button onClick={handleClickCloseForm}>X</button>}
         {statusInfo == true && <button onClick={handleClickCloseInfo}>X</button>}
       </div>
@@ -359,7 +347,6 @@ function App() {
             pagination
           />
         </div>)}
-
       {statusAdd == true &&
         <div>
           <form
@@ -375,7 +362,6 @@ function App() {
                 name="ProductName"
                 value={formValue.ProductName}
                 onChange={handlePostProduct}
-
               />
             </div>
             <div >
@@ -394,7 +380,6 @@ function App() {
                 name="Price"
                 value={formValue.Price}
                 onChange={handlePostProduct}
-
               />
             </div>
             <div>
@@ -404,7 +389,6 @@ function App() {
                 name="Description"
                 value={formValue.Description}
                 onChange={handlePostProduct}
-
               />
             </div>
             <div>
@@ -414,7 +398,6 @@ function App() {
                 name="Size"
                 value={formValue.Size}
                 onChange={handlePostProduct}
-
               />
             </div>
             <div>
@@ -424,7 +407,6 @@ function App() {
                 name="Material"
                 value={formValue.Material}
                 onChange={handlePostProduct}
-
               />
             </div>
             <div>
@@ -435,18 +417,16 @@ function App() {
 
           </form>
         </div>}
-
       {statusInfo === true && info ? (
         <div>
           <div className='box'>
             {showFullImage && (
               <div className="full-image-container" onClick={handleCloseFullImage}>
                 <button className="close-button" onClick={handleCloseFullImage}>X</button>
-                <img className="full-image" src={'http://' + localhost + ':8080/uploads/' + info.Picture} alt="Full Size Image" />
+                <img className="full-image" src={'http://' + ipAddress + ':8080/uploads/' + info.Picture} alt="Full Size Image" />
               </div>
             )}
-
-            <img className='single' src={'http://' + localhost + ':8080/uploads/' + info.Picture} alt="Thumbnail Image" onClick={handleClickImage} />
+            <img className='single' src={'http://' + ipAddress + ':8080/uploads/' + info.Picture} alt="Thumbnail Image" onClick={handleClickImage} />
             <div id='flex-contianer'>
               <div id='infoleft'>
                 <p id='id'>ID: {info.ProductID}</p>
@@ -469,7 +449,6 @@ function App() {
       ) : statusInfo === true && (
         <h3>Loading...</h3>
       )}
-
     </div>
   );
 }

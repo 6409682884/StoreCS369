@@ -5,7 +5,7 @@ const login = require('./route/login_route')
 const app = express();
 const productroute = require('./route/product_route')
 // const reportRouter = require('./route/report')
-const path = require('path');
+const path = require('path');  //นำเข้าโมดูล path เพื่อใช้ในการจัดการเส้นทางไฟล์.
 const multer = require("multer")
 const fs = require('fs');
 

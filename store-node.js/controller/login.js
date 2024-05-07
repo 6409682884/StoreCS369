@@ -9,13 +9,19 @@ async function authen(user) {
             .then(pool => {
                 return pool.request()
                     .input('username', sql.NVarChar, user.Username)
-                    .input('password', sql.NVarChar, user.Password)
                     .output('code', sql.NVarChar, 'success')
-                    .query('SELECT UserID,Username FROM Users WHERE Username=@username AND Password=@password;')
-            }).then(result => {// ผลลัพธ์ result
-                return result.recordset[0].UserID ? true : false;  // return data result
-            }).catch(err => {  // ถ้าเกิด error จะเข้า catch
-                return err;  // return error
+                    .query('SELECT Username,Password FROM Users WHERE Username=@username;')
+            }).then(async result => {
+                if (result.recordset.length > 0) {
+                    const storedPassword = result.recordset[0].Password;
+                    // Perform case-sensitive comparison
+                    const isAuthenticated = user.Password === storedPassword;
+                    return isAuthenticated;
+                } else {
+                    return false;  // User not found
+                }
+            }).catch(err => {
+                return err;
             });
         return data;  // return ค่ากลับ
     }

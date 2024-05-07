@@ -46,7 +46,6 @@ async function postProduct(item) {
     // Query
     let data = await sql.connect(config) // sql connect to database
         .then(pool => {
-
             return pool.request()
             .input('ProductName', sql.NVarChar, item.ProductName)  //input ProductName เป็น type NVarChar
             .input('Picture', sql.NVarChar, item.Picture)  
@@ -70,31 +69,6 @@ async function postProduct(item) {
     }
 }
 
-// async function putShip(item, id) {
-//     try {// ถ้าเกิด error จะเข้า catch
-//     // Query
-//     let data = await sql.connect(config) // sql connect to database
-//         .then(pool => {
-//             return pool.request()
-//             .input('ShipperID', sql.Int, id)  //input ShipperID เป็น type Int
-//             .input('CompanyName', sql.NVarChar, item.CompanyName)  //input CompanyName เป็น type NVarChar
-//             .input('Phone', sql.NVarChar, item.Phone)  //input Phone เป็น type NVarChar
-//             .output('id', sql.Int, id)  //output id เป็น type Int
-//             .output('code', sql.NVarChar, 'success')  //output code เป็น type NVarChar 'success'
-//             .query('UPDATE Shippers SET CompanyName =@CompanyName, Phone= @Phone WHERE ShipperID=@ShipperID') // ส่ง Query UPDATE ไปที่ตาราง Shippers ตามที่ shipperid ที่ได้รับมา     }).then(result => {// ผลลัพธ์ result
-//         }).then(result => {// ผลลัพธ์ result
-//             // console.log(result)
-//             return result.output  // return data result
-//         }).catch(err => {  // ถ้าเกิด error จะเข้า catch
-//             return err;  // return error
-//         });
-//     return data;  // return ค่ากลับ
-//     }
-//     catch (error){
-//         console.log(error);
-//     }
-// }
-
 async function deleteProduct(id) {
     try {// ถ้าเกิด error จะเข้า catch
     // Query
@@ -117,6 +91,5 @@ async function deleteProduct(id) {
         console.log(error);
     }
 }
-
 
 module.exports = { getProduct:getProduct, getProductByID:getProductByID, postProduct:postProduct, deleteProduct:deleteProduct };
