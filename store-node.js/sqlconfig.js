@@ -1,3 +1,4 @@
+//6409682884
 const sql = require("mssql");
 
 /*const config = {
@@ -30,7 +31,7 @@ sql.connect(config)
     });*/
 
 
-//RDS sql
+//RDS sql config
 const sqlConfig = {
   server: 'storecs369.ch4wskk4qblv.us-east-1.rds.amazonaws.com',
   user: 'admin',
@@ -47,7 +48,7 @@ const sqlConfig = {
   }
 }
 
-//MS sql localhost
+//MS sql localhost config
 // const sqlConfig = {
 //   server: 'LEGION5PROOFSAK\\SQLEXPRESS',
 //   user: 'sa',
