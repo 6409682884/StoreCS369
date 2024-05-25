@@ -1,5 +1,3 @@
-// โค้ดต่อไปนี้เป็น React ดังนั้นจะไม่ได้อธิบายรายละเอียดของโค้ดมาก
-
 import './App.css';
 import DataTable from 'react-data-table-component';
 import { useEffect, useState } from 'react';
@@ -47,7 +45,7 @@ function App() {
     return () => clearTimeout(timeout);
   }, []);
 
-  //
+  // ตั้งค่าหัวตาราง
   const HeaderColumns =
     [
       {
@@ -64,23 +62,25 @@ function App() {
       },
       {
         name: 'Picture',
-        cell: row => <img src={"http://" + hostIpAddress + ":8080/uploads/" + row.Picture} alt="Product Image" width="150" height="150" className='multi' />
+        cell: row => <img src={"http://" + hostIpAddress + ":8080/uploads/" + row.Picture} alt="Product Image" className='multi' />
       },
       {
         name: 'Detail',
-        selector: row => <button onClick={() => handleClickInfo(row.ProductID)}>More details</button>
+        selector: row => <button className='buttonMD' onClick={() => handleClickInfo(row.ProductID)}>More details</button>
       },
     ];
 
+  // ตั้งค่ารูปแบบตาราง
   const customStyles = {
     rows: {
       style: {
+        fontSize: '16px',
         minHeight: '72px', // override the row height
       },
     },
     headCells: {
       style: {
-        fontSize: '16px',
+        fontSize: '18px',
         paddingLeft: '8px', // override the cell padding for head cells
         paddingRight: '8px',
       },
@@ -96,21 +96,22 @@ function App() {
   // set state เปิด-ปิด form
   const [statusAdd, setStatusAdd] = useState(false);
   const [statusInfo, setStatusInfo] = useState(false);
+  // ฟังก์ชันกรองข้อมูล
   function handleFilter(event) {
     const newData = datafilter.filter(row => {
       return row.ProductName.toLowerCase().includes(event.target.value.toLowerCase())
     })
     setData(newData)
   }
-
+  // ฟังก์ชันเปิดฟอร์มเพิ่มสินค้า
   function handleClickAdd(event) {
     setStatusAdd(true)
   }
-  
+  // ฟังก์ชันปิดฟอร์ม
   function handleClickCloseForm(event) {
     setStatusAdd(false)
   }
-
+  // ฟังก์ชันเปิดข้อมูลราลละเอียดสินค้า
   const handleClickInfo = (ProductID) => {
     setStatusInfo(true);
     window.scrollTo({
@@ -138,15 +139,15 @@ function App() {
         console.error(`Error fetching ProductID ${ProductID}:`, error);
       });
   }
-
+  // ฟังก์ชันปิดข้อมูลสินค้า
   function handleClickCloseInfo(event) {
     setStatusInfo(false)
   }
-
+  // ฟังก์ชันเปิดภาพเต็ม
   const handleClickImage = () => {
     setShowFullImage(true);
   };
-
+  // ฟังก์ชันปิดภาพเต็ม
   const handleCloseFullImage = () => {
     setShowFullImage(false);
   };
@@ -154,16 +155,17 @@ function App() {
   const [formValue, setFormValue] = useState({ ProductName: '', Price: '' })
   const [loginValue, setLoginValue] = useState({ Username: '', Password: '' })
   const [loginLoading, setLoginLoading] = useState(false)
+  // ฟังก์ชันจัดการข้อมูลในฟอร์ม
   const handlePostProduct = (e) => {
     const { name, value } = e.target;
     setFormValue({ ...formValue, [name]: value });
   }
-
+  // ฟังก์ชันจัดการข้อมูลการเข้าสู่ระบบ
   const handleLoginInput = (e) => {
     const { name, value } = e.target;
     setLoginValue({ ...loginValue, [name]: value });
   }
-
+  // ฟังก์ชันอัปโหลดไฟล์รูปภาพ
   const upload = async () => {
     try {
       const formData = new FormData();
@@ -181,7 +183,7 @@ function App() {
       console.log(error);
     }
   };
-
+// ฟังก์ชันลบรูปภาพ
   const DeleteImage = async (ProductID) => {
     fetch(`http://` + hostIpAddress + `:8080/api/product/${ProductID}`, {
       method: "GET",
@@ -209,7 +211,7 @@ function App() {
         console.error(`Error fetching ProductID ${ProductID}:`, error);
       });
   }
-
+// ฟังก์ชันเข้าสู่ระบบ
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoginLoading(true)
@@ -244,10 +246,11 @@ function App() {
   }
 
   const [preview, setPreview] = useState(null);
+   // ฟังก์ชันจัดการภาพตอนเลือกภาพขณะเพิ่มสินค้า
   const handleImageChange = (e) => {
     const img = e.target.files[0];
     setFile(img)
-    if(img){
+    if (img) {
       const reader = new FileReader();
       // Generate a preview URL for the selected image
       reader.onloadend = () => {
@@ -258,30 +261,33 @@ function App() {
     else {
       setPreview(null);
     }
-    
+
   };
 
-  // กด submit post data
+  // ฟังก์ชันกด submit เพิ่มข้อมูลสินค้า
   const handleSubmit = async (e) => {
     e.preventDefault();
     handleClickCloseForm();
     const img = await upload();
-    const allInputValue = { ProductName: formValue.ProductName==""?null:formValue.ProductName, Picture: img ? img : null, Price: formValue.Price, Description: formValue.Description, Size: formValue.Size, Material: formValue.Material }
+    // รวมข้อมูลทั้งหมดที่ต้องการส่งไปยัง API
+    const allInputValue = { ProductName: formValue.ProductName == "" ? null : formValue.ProductName, Picture: img ? img : null, Price: formValue.Price, Description: formValue.Description, Size: formValue.Size, Material: formValue.Material }
+    // ส่งข้อมูลไปยัง API ด้วยเมธอด POST
     let res = await fetch("http://" + hostIpAddress + ":8080/api/product", {
       method: "POST",
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(allInputValue)
     })
-
+// ตรวจสอบสถานะการส่งข้อมูล
     if (res.status === 200) {
       setStatusAdd(false)
       fetchDataForPosts();
       return (
-        alert('เพิ่มสินค้าสำเร็จ ชื่อสินค้า: '+allInputValue.ProductName)
+        alert('เพิ่มสินค้าสำเร็จ ชื่อสินค้า: ' + allInputValue.ProductName)
       );
     } else {
+      // ถ้าเกิดข้อผิดพลาดในการส่งข้อมูล ลบรูปภาพที่อัปโหลดไว้
       fetch(`http://` + hostIpAddress + `:8080/delete/${allInputValue.Picture}`, {
-          method: "DELETE"
+        method: "DELETE"
       });
       return (
         alert('เพิ่มสินค้าไม่สำเร็จ กรุณากรอกชื่อและราคาสินค้าด้วย ^.^,')
@@ -289,7 +295,7 @@ function App() {
     }
   }
 
-  // handle Del From DataBase
+  // ฟังก์ชันสำหรับการลบข้อมูลจากฐานข้อมูล
   const [selectedRows, setSelectedRows] = useState([]);
   const [toggleCleared, setToggleCleared] = useState(false);
   const handleRowSelected = React.useCallback(state => {
@@ -304,10 +310,11 @@ function App() {
     const handleDelete = (id) => {
       if (window.confirm(`Are you sure you want to delete:\r ${selectedRows.map(r => r.ProductName)}?`)) {
         setToggleCleared(!toggleCleared);
-        console.log(selectedRows)
+        console.log(selectedRows) 
         const ProductIDs = selectedRows.map(item => item.ProductID);
         ProductIDs.forEach(ProductID => {
-          DeleteImage(ProductID);
+          DeleteImage(ProductID); // ลบรูปภาพที่เกี่ยวข้องกับสินค้า
+          // ส่งคำร้องขอลบข้อมูลไปยัง API
           fetch(`http://` + hostIpAddress + `:8080/api/product/${ProductID}`, {
             method: "DELETE",
             headers: { 'content-type': 'application/json' },
@@ -325,8 +332,7 @@ function App() {
               console.error(`Error deleting ProductID ${ProductID}:`, error);
             });
         });
-        // Optionally, you can show a confirmation message here after all requests are completed
-        alert('Delete requests sent for selected rows');
+        alert('Successfully delete requests sent for selected rows.');
       }
     };
     return (
@@ -392,15 +398,16 @@ function App() {
                 type="file"
                 placeholder="Picture"
                 name="Picture"
+                accept=".jpg, .jpeg, .png"
                 value={formValue.Picture}
                 onChange={handleImageChange}
               />
             </div>
             {preview && (
-                <div>
-                  <img src={preview} alt="Selected Image" width="150" height="150" />
-                </div>
-              )}
+              <div>
+                <img src={preview} alt="Selected Image" width="150" height="150" />
+              </div>
+            )}
             <div>
               <input
                 type="number"

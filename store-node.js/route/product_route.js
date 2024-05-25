@@ -19,6 +19,7 @@ router.route('/product').get((req, res) => {
         console.log(err);
     });
 })
+
 //http://localhost:8080/api/product/1
 router.route('/product/:id').get((req, res) => {    // ส่ง parameter id
     Db.getProductByID(req.params.id).then((data) => {  // เรียกใช้ function getProductByID(id) / req.params.id ดึงค่า parameter id
@@ -30,6 +31,7 @@ router.route('/product/:id').get((req, res) => {    // ส่ง parameter id
         console.log(err);
     });
 })
+
 //http://localhost:8080/api/product
 router.route('/product').post((req, res) => {
     let product = {...req.body} //ส่ง req.body เป็นข้อมูล json เข้าไปยังตัวแปร product
