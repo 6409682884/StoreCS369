@@ -16,11 +16,11 @@ function App() {
   const [showFullImage, setShowFullImage] = useState(false);
   const [statusAuth, setStatusAuth] = useState(false);
   const datas = []
-  const ipAddress = "localhost" //แก้ตรงนี้ทุกครั้งที่ ip localhost เปลี่ยนอย่างเช่นปิด-เปิด aws ec2 ใหม่
+  const hostIpAddress = "localhost" //แก้ตรงนี้ทุกครั้งที่ ip localhost เปลี่ยนอย่างเช่นปิด-เปิด aws ec2 ใหม่
   // Get Data From API
   const fetchDataForPosts = async () => {
     try {
-      const response = await fetch(`http://` + ipAddress + `:8080/api/product`, {
+      const response = await fetch(`http://` + hostIpAddress + `:8080/api/product`, {
         method: "GET"
       });
       if (!response.ok) {
@@ -32,6 +32,7 @@ function App() {
       setError(null);
     } catch (err) {
       setError(err.message);
+      console.log(error)
       setData(null);
     } finally {
       setPending(false);
@@ -46,6 +47,7 @@ function App() {
     return () => clearTimeout(timeout);
   }, []);
 
+  //
   const HeaderColumns =
     [
       {
@@ -62,11 +64,11 @@ function App() {
       },
       {
         name: 'Picture',
-        cell: row => <img src={"http://" + ipAddress + ":8080/uploads/" + row.Picture} alt="Product Image" width="150" height="150" className='multi' />
+        cell: row => <img src={"http://" + hostIpAddress + ":8080/uploads/" + row.Picture} alt="Product Image" width="150" height="150" className='multi' />
       },
       {
         name: 'Detail',
-        selector: row => <button onClick={() => handleClickInfo(row.ProductID)}>Detail</button>
+        selector: row => <button onClick={() => handleClickInfo(row.ProductID)}>More details</button>
       },
     ];
 
@@ -78,6 +80,7 @@ function App() {
     },
     headCells: {
       style: {
+        fontSize: '16px',
         paddingLeft: '8px', // override the cell padding for head cells
         paddingRight: '8px',
       },
@@ -113,7 +116,7 @@ function App() {
     window.scrollTo({
       top: 0
     });
-    fetch(`http://` + ipAddress + `:8080/api/product/${ProductID}`, {
+    fetch(`http://` + hostIpAddress + `:8080/api/product/${ProductID}`, {
       method: "GET",
       headers: { 'content-type': 'application/json' },
     })
@@ -165,7 +168,7 @@ function App() {
     try {
       const formData = new FormData();
       formData.append("file", file);
-      const response = await fetch("http://" + ipAddress + ":8080/upload", {
+      const response = await fetch("http://" + hostIpAddress + ":8080/upload", {
         method: "POST",
         body: formData
       });
@@ -179,8 +182,8 @@ function App() {
     }
   };
 
-  const Delete = async (ProductID) => {
-    fetch(`http://` + ipAddress + `:8080/api/product/${ProductID}`, {
+  const DeleteImage = async (ProductID) => {
+    fetch(`http://` + hostIpAddress + `:8080/api/product/${ProductID}`, {
       method: "GET",
       headers: { 'content-type': 'application/json' },
     })
@@ -193,7 +196,7 @@ function App() {
       })
       .then(Product => {
         console.log(Product)
-        const response = fetch(`http://` + ipAddress + `:8080/delete/${Product.data.Picture}`, {
+        const response = fetch(`http://` + hostIpAddress + `:8080/delete/${Product.data.Picture}`, {
           method: "DELETE"
         });
         if (!response.ok) {
@@ -215,7 +218,7 @@ function App() {
       Password: loginValue.Password
     };
 
-    let res = await fetch("http://" + ipAddress + ":8080/Authen/login", {
+    let res = await fetch("http://" + hostIpAddress + ":8080/Authen/login", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
@@ -240,28 +243,48 @@ function App() {
     }
   }
 
+  const [preview, setPreview] = useState(null);
+  const handleImageChange = (e) => {
+    const img = e.target.files[0];
+    setFile(img)
+    if(img){
+      const reader = new FileReader();
+      // Generate a preview URL for the selected image
+      reader.onloadend = () => {
+        setPreview(reader.result);
+      };
+      reader.readAsDataURL(img);
+    }
+    else {
+      setPreview(null);
+    }
+    
+  };
+
   // กด submit post data
   const handleSubmit = async (e) => {
     e.preventDefault();
     handleClickCloseForm();
     const img = await upload();
-    const allInputValue = { ProductName: formValue.ProductName, Picture: img ? img : "", Price: formValue.Price, Description: formValue.Description, Size: formValue.Size, Material: formValue.Material }
-    let res = await fetch("http://" + ipAddress + ":8080/api/product", {
+    const allInputValue = { ProductName: formValue.ProductName==""?null:formValue.ProductName, Picture: img ? img : null, Price: formValue.Price, Description: formValue.Description, Size: formValue.Size, Material: formValue.Material }
+    let res = await fetch("http://" + hostIpAddress + ":8080/api/product", {
       method: "POST",
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(allInputValue)
     })
 
-    let resjson = await res.json();
     if (res.status === 200) {
       setStatusAdd(false)
       fetchDataForPosts();
       return (
-        alert('Yes')
+        alert('เพิ่มสินค้าสำเร็จ ชื่อสินค้า: '+allInputValue.ProductName)
       );
     } else {
+      fetch(`http://` + hostIpAddress + `:8080/delete/${allInputValue.Picture}`, {
+          method: "DELETE"
+      });
       return (
-        alert('No')
+        alert('เพิ่มสินค้าไม่สำเร็จ กรุณากรอกชื่อและราคาสินค้าด้วย ^.^,')
       );
     }
   }
@@ -284,8 +307,8 @@ function App() {
         console.log(selectedRows)
         const ProductIDs = selectedRows.map(item => item.ProductID);
         ProductIDs.forEach(ProductID => {
-          Delete(ProductID);
-          fetch(`http://` + ipAddress + `:8080/api/product/${ProductID}`, {
+          DeleteImage(ProductID);
+          fetch(`http://` + hostIpAddress + `:8080/api/product/${ProductID}`, {
             method: "DELETE",
             headers: { 'content-type': 'application/json' },
           })
@@ -316,7 +339,7 @@ function App() {
       <div style={{ alignSelf: 'end', display: 'flex', justifyContent: 'space-evenly', gap: '0.5rem' }}>
         {statusAdd === false && statusInfo === false && (
           <div>
-            {statusAuth == true ? <><button onClick={handleClickAdd}>+</button> <button onClick={() => { setStatusAuth(false) }}>Logout</button></> :
+            {statusAuth === true ? <><button onClick={handleClickAdd}>+ Add Product</button> <button onClick={() => { setStatusAuth(false) }}>Logout</button></> :
               <form id='loginForm' onSubmit={handleLogin} method="POST">
                 <label>Username: </label>
                 <input name="Username" type="text" placeholder="Username" value={loginValue.Username} onChange={handleLoginInput} />
@@ -328,10 +351,10 @@ function App() {
             }
             <input type='text' placeholder='Search Product Name' onChange={handleFilter} style={{ margin: '0 0.5rem 0 0.5rem' }} />
           </div>)}
-        {statusAdd == true && <button onClick={handleClickCloseForm}>X</button>}
-        {statusInfo == true && <button onClick={handleClickCloseInfo}>X</button>}
+        {statusAdd === true && <button onClick={handleClickCloseForm}>X</button>}
+        {statusInfo === true && <button onClick={handleClickCloseInfo}>X</button>}
       </div>
-      {statusAdd == false && statusInfo == false && (
+      {statusAdd === false && statusInfo === false && (
         <div>
           <DataTable
             theme="default"
@@ -347,7 +370,7 @@ function App() {
             pagination
           />
         </div>)}
-      {statusAdd == true &&
+      {statusAdd === true &&
         <div>
           <form
             style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}
@@ -370,9 +393,14 @@ function App() {
                 placeholder="Picture"
                 name="Picture"
                 value={formValue.Picture}
-                onChange={e => setFile(e.target.files[0])}
+                onChange={handleImageChange}
               />
             </div>
+            {preview && (
+                <div>
+                  <img src={preview} alt="Selected Image" width="150" height="150" />
+                </div>
+              )}
             <div>
               <input
                 type="number"
@@ -423,10 +451,10 @@ function App() {
             {showFullImage && (
               <div className="full-image-container" onClick={handleCloseFullImage}>
                 <button className="close-button" onClick={handleCloseFullImage}>X</button>
-                <img className="full-image" src={'http://' + ipAddress + ':8080/uploads/' + info.Picture} alt="Full Size Image" />
+                <img className="full-image" src={'http://' + hostIpAddress + ':8080/uploads/' + info.Picture} alt="Full Size Image" />
               </div>
             )}
-            <img className='single' src={'http://' + ipAddress + ':8080/uploads/' + info.Picture} alt="Thumbnail Image" onClick={handleClickImage} />
+            <img className='single' src={'http://' + hostIpAddress + ':8080/uploads/' + info.Picture} alt="Thumbnail Image" onClick={handleClickImage} />
             <div id='flex-contianer'>
               <div id='infoleft'>
                 <p id='id'>ID: {info.ProductID}</p>
