@@ -31,23 +31,6 @@ sql.connect(config)
 
 
 //RDS sql
-// const sqlConfig = {
-//   server: 'storecs369.ch4wskk4qblv.us-east-1.rds.amazonaws.com',
-//   user: 'admin',
-//   password: 'pp0983859907',
-//   database: 'Store',
-//   pool: {
-//     max: 10,
-//     min: 0,
-//     idleTimeoutMillis: 30000
-//   },
-//   options: {
-//     encrypt: false, // for azure
-//     trustServerCertificate: false // change to true for local dev / self-signed certs
-//   }
-// }
-
-//MS sql localhost
 const sqlConfig = {
   server: 'storecs369.ch4wskk4qblv.us-east-1.rds.amazonaws.com',
   user: 'admin',
@@ -63,6 +46,23 @@ const sqlConfig = {
     trustServerCertificate: false // change to true for local dev / self-signed certs
   }
 }
+
+//MS sql localhost
+// const sqlConfig = {
+//   server: 'LEGION5PROOFSAK\\SQLEXPRESS',
+//   user: 'sa',
+//   password: '',
+//   database: 'Store',
+//   pool: {
+//     max: 10,
+//     min: 0,
+//     idleTimeoutMillis: 30000
+//   },
+//   options: {
+//     encrypt: false, // for azure
+//     trustServerCertificate: false // change to true for local dev / self-signed certs
+//   }
+// }
 
 async function connect() {
   try {
