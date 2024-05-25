@@ -49,8 +49,8 @@ sql.connect(config)
 
 //MS sql localhost
 const sqlConfig = {
-  server: 'LEGION5PROOFSAK\\SQLEXPRESS',
-  user: 'sa',
+  server: 'storecs369.ch4wskk4qblv.us-east-1.rds.amazonaws.com',
+  user: 'admin',
   password: 'pp1234',
   database: 'Store',
   pool: {
